@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,18 +72,18 @@ public class SettingItemView extends LinearLayout {
             tvTitle.setText(title);
             tvTitle.setTextColor(titleColor);
             if (titleSize > 0) {
-                tvTitle.setTextSize(titleSize);
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize);
             }
 
             tvContent.setText(content);
             tvContent.setTextColor(contentColor);
             if (contentSize > 0) {
-                tvContent.setTextSize(contentSize);
+                tvContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, contentSize);
             }
 
             if (textSize > 0) {
-                tvTitle.setTextSize(textSize);
-                tvContent.setTextSize(textSize);
+                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                tvContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
             }
 
             if (titleGravity == 1) {
