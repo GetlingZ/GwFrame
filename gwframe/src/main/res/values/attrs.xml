@@ -16,6 +16,7 @@
         <attr name="settingTitleColor" format="color" />
         <attr name="settingTitleSize" format="integer" />
         <attr name="settingContentSize" format="integer" />
+        <attr name="settingTextSize" format="integer" />
         <attr name="titleGravity">
             <flag name="start" value="1" />
             <flag name="end" value="2" />

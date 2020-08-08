@@ -64,16 +64,26 @@ public class SettingItemView extends LinearLayout {
             int contentColor = typedArray.getColor(R.styleable.SettingItemView_settingContentColor, 0xff333333);
             int titleColor = typedArray.getColor(R.styleable.SettingItemView_settingTitleColor, 0xff333333);
             int titleGravity = typedArray.getInt(R.styleable.SettingItemView_titleGravity, 1);
-            int titleSize = typedArray.getInt(R.styleable.SettingItemView_settingTitleSize, 16);
-            int contentSize = typedArray.getInt(R.styleable.SettingItemView_settingContentSize, 16);
+            int titleSize = AdaptScreenUtils.pt2Px(typedArray.getInt(R.styleable.SettingItemView_settingTitleSize, 0));
+            int contentSize = AdaptScreenUtils.pt2Px(typedArray.getInt(R.styleable.SettingItemView_settingContentSize, 0));
+            int textSize = AdaptScreenUtils.pt2Px(typedArray.getInt(R.styleable.SettingItemView_settingTextSize, 0));
 
             tvTitle.setText(title);
             tvTitle.setTextColor(titleColor);
-            tvTitle.setTextSize(AdaptScreenUtils.pt2Px(titleSize));
+            if (titleSize > 0) {
+                tvTitle.setTextSize(titleSize);
+            }
 
             tvContent.setText(content);
             tvContent.setTextColor(contentColor);
-            tvContent.setTextSize(AdaptScreenUtils.pt2Px(contentSize));
+            if (contentSize > 0) {
+                tvContent.setTextSize(contentSize);
+            }
+
+            if (textSize > 0) {
+                tvTitle.setTextSize(textSize);
+                tvContent.setTextSize(textSize);
+            }
 
             if (titleGravity == 1) {
                 tvTitle.setGravity(Gravity.START);
