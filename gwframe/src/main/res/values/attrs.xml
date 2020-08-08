@@ -17,27 +17,64 @@
         <attr name="settingTitleSize" format="integer" />
         <attr name="settingContentSize" format="integer" />
         <attr name="settingTextSize" format="integer" />
-        <attr name="titleGravity">
-            <flag name="start" value="1" />
-            <flag name="end" value="2" />
-            <flag name="center" value="3" />
-        </attr>
+        <attr name="titleGravity" />
         <attr name="showInputDialog" />
     </declare-styleable>
+
+    <declare-styleable name="FormView">
+        <attr name="formTitle" format="string" />
+        <attr name="formContent" format="string" />
+        <attr name="formContentColor" format="color" />
+        <attr name="formTitleColor" format="color" />
+        <attr name="formTitleSize" format="integer" />
+        <attr name="formContentSize" format="integer" />
+        <attr name="formTextSize" format="integer" />
+        <attr name="edit_enable" format="boolean" />
+        <attr name="titleGravity" />
+        <attr name="showInputDialog" />
+        <attr name="formBackground">
+            <flag name="white" value="1" />
+            <flag name="transparent" value="2" />
+        </attr>
+        <attr name="drawable_src" />
+        <attr name="drawable_height" />
+        <attr name="drawable_width" />
+        <attr name="drawable_location" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawableTextView">
+        <attr name="drawable_src" />
+        <attr name="drawable_height" />
+        <attr name="drawable_width" />
+        <attr name="drawable_location" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawableEditText">
+        <attr name="drawable_src" />
+        <attr name="drawable_height" />
+        <attr name="drawable_width" />
+        <attr name="drawable_location" />
+    </declare-styleable>
+
+    <attr name="drawable_src" format="reference" />
+    <attr name="drawable_height" format="dimension" />
+    <attr name="drawable_width" format="dimension" />
+
+    <attr name="drawable_location">
+        <enum name="left" value="1" />
+        <enum name="top" value="2" />
+        <enum name="right" value="3" />
+        <enum name="bottom" value="4" />
+    </attr>
+
+    <attr name="titleGravity">
+        <flag name="start" value="1" />
+        <flag name="end" value="2" />
+        <flag name="center" value="3" />
+    </attr>
+
     <attr name="showInputDialog">
         <flag name="text" value="1" />
         <flag name="num" value="2" />
     </attr>
-
-    <declare-styleable name="DrawableTextView">
-        <attr name="drawable_src" format="reference" />
-        <attr name="drawable_height" format="dimension" />
-        <attr name="drawable_width" format="dimension" />
-        <attr name="drawable_location">
-            <enum name="left" value="1" />
-            <enum name="top" value="2" />
-            <enum name="right" value="3" />
-            <enum name="bottom" value="4" />
-        </attr>
-    </declare-styleable>
 </resources>

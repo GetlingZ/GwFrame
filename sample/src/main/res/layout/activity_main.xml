@@ -24,5 +24,19 @@
             app:settingTitle="确定："
             app:settingTitleSize="30"
             app:titleGravity="end" />
+
+        <com.getling.gwframe.widget.FormView
+            android:layout_width="200pt"
+            android:layout_height="wrap_content"
+            app:drawable_height="@dimen/dimen_16"
+            app:drawable_location="right"
+            app:drawable_src="@drawable/icon_clear"
+            app:drawable_width="@dimen/dimen_16"
+            app:formBackground="white"
+            app:formContent="@string/text_ok"
+            app:formContentColor="@color/color_333333"
+            app:formTitle="aaaaa"
+            app:formTitleColor="@color/color_E2E2E2"
+            app:titleGravity="end" />
     </LinearLayout>
 </layout>
