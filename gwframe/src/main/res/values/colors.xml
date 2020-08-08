@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_03A9F4">#03A9F4</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!--用于分隔线-->
+    <color name="color_E2E2E2">#E2E2E2</color>
+    <!--正文，标题-->
+    <color name="color_333333">#333333</color>
+    <!--二级次要文字-->
+    <color name="color_666666">#666666</color>
+    <!--辅助信息，介绍性文字-->
+    <color name="color_999999">#999999</color>
+
+    <color name="color_88FFFFFF">#88FFFFFF</color>
+    <color name="color_AA000000">#AA000000</color>
+
+    <!--用于提醒-->
+    <color name="color_FEAA2C">#FFC107</color>
+    <color name="color_F44336">#F44336</color>
+    <color name="color_FFF0F0">#FFF0F0</color>
+    <color name="color_00CC00">#00CC00</color>
+</resources>

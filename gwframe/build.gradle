@@ -1,0 +1,78 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        minSdkVersion 25
+        targetSdkVersion 29
+        versionCode 15
+        versionName "0.1.5"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        //rxhttp配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        //必须，告知RxHttp你依赖的okhttp版本，目前已适配 v3.12.0 - v4.7.2版本  (v4.3.0除外)
+                        rxhttp_okhttp : '4.7.2',
+                        //使用asXxx方法时必须，告知RxHttp你依赖的rxjava版本，可传入rxjava2、rxjava3
+                        rxhttp_rxjava : 'rxjava3',
+                        rxhttp_package: 'rxhttp'   //非必须，指定RxHttp相关类的生成路径，即包名
+                ]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'com.king.zxing:zxing-lite:1.1.9-androidx'
+    api 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    api "androidx.constraintlayout:constraintlayout:1.1.3"
+    api 'com.contrarywind:Android-PickerView:4.1.9'
+    api "com.github.bumptech.glide:glide:4.9.0"
+    api 'com.blankj:free-proguard:1.0.2'
+    api 'com.blankj:utilcodex:1.26.0'
+    //rxhttp v2.2.2版本起，需要手动依赖okhttp，目前已适配 v3.12.0 - v4.7.2版本  (v4.3.0除外)
+    api 'com.squareup.okhttp3:okhttp:4.7.2'
+    //rxjava3
+    api 'io.reactivex.rxjava3:rxjava:3.0.2'
+    api 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    //管理RxJava3生命周期，页面销毁，关闭请求
+    api 'com.ljx.rxlife3:rxlife-rxjava:3.0.0'
+    //管理协程生命周期，页面销毁，关闭请求
+    api 'com.ljx.rxlife:rxlife-coroutine:2.0.0'
+    api 'com.ljx.rxhttp:rxhttp:2.2.8'
+    kapt 'com.ljx.rxhttp:rxhttp-compiler:2.2.8'
+    kapt "com.github.bumptech.glide:compiler:4.9.0"
+    kapt "com.android.databinding:compiler:3.6.3"
+}

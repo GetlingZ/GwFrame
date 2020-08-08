@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.getling.gwframe">
+
+    <application>
+        <activity android:name=".scan.ScanQRCodeActivity" />
+        <activity android:name=".pdf.PDFViewActivity" />
+
+        <service
+            android:name=".http.network.NetworkCheckService"
+            android:enabled="true"
+            android:exported="false" />
+    </application>
+</manifest>

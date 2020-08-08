@@ -1,0 +1,36 @@
+<resources>
+    <string name="text_ok">确定</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_save">保存</string>
+    <string name="text_search">搜索</string>
+    <string name="text_scan">扫描</string>
+    <string name="text_delete">删除</string>
+    <string name="text_network_error">当前网络不可用，请检查手机网络设置</string>
+
+    <string name="text_input_num_over_0">请输入大于0的数量</string>
+    <string name="text_change_num">修改数量</string>
+    <string name="text_please_input">请输入</string>
+
+    <string name="menu_title_add">添加</string>
+
+    <string name="tips_scan_code">将二维码/条形码放入框内，即可自动扫描</string>
+    <string name="title_scan">扫一扫</string>
+
+    <string name="update_title">发现新版</string>
+    <string name="update_version">更新版本</string>
+    <string name="update_current_version">当前版本</string>
+    <string name="update_size">大小</string>
+    <string name="update_info">更新说明</string>
+    <string name="update_next_time">以后再说</string>
+    <string name="update_now">立即更新</string>
+    <string name="update_downloading">正在下载，请稍后&#8230;</string>
+    <string name="update_need_permission">请在设置中开启安装应用权限</string>
+    <string name="update_download_complete">下载完成</string>
+    <string name="update_download_error">下载失败，请稍后再试</string>
+    <string name="update_info_error">获取新版信息失败，请稍后再试</string>
+    <string name="update_no">当前已是最新版，无需更新</string>
+    <string name="update_install_error">安装失败</string>
+    <string name="update_download_100">100%</string>
+    <string name="update_install_now">立即安装</string>
+    <string name="update_re_download">重新下载</string>
+</resources>

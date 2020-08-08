@@ -1,0 +1,3 @@
+rootProject.name='GwFrame'
+include ':sample'
+include ':gwframe'

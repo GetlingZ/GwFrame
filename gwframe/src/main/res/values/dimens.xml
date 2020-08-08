@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimen_50">50pt</dimen>
+    <dimen name="dimen_48">48pt</dimen>
+    <dimen name="dimen_46">46pt</dimen>
+    <dimen name="dimen_44">44pt</dimen>
+    <dimen name="dimen_42">42pt</dimen>
+    <dimen name="dimen_40">40pt</dimen>
+    <dimen name="dimen_38">38pt</dimen>
+    <dimen name="dimen_36">36pt</dimen>
+    <dimen name="dimen_34">34pt</dimen>
+    <dimen name="dimen_32">32pt</dimen>
+    <dimen name="dimen_30">30pt</dimen>
+    <dimen name="dimen_28">28pt</dimen>
+    <dimen name="dimen_26">26pt</dimen>
+    <dimen name="dimen_24">24pt</dimen>
+    <dimen name="dimen_22">22pt</dimen>
+    <dimen name="dimen_20">20pt</dimen>
+    <dimen name="dimen_18">18pt</dimen>
+    <dimen name="dimen_16">16pt</dimen>
+    <dimen name="dimen_14">14pt</dimen>
+    <dimen name="dimen_12">12pt</dimen>
+    <dimen name="dimen_10">10pt</dimen>
+    <dimen name="dimen_8">8pt</dimen>
+
+    <dimen name="padding_8">8pt</dimen>
+    <dimen name="padding_12">12pt</dimen>
+    <dimen name="padding_16">16pt</dimen>
+    <dimen name="padding_20">20pt</dimen>
+
+    <dimen name="margin_8">8pt</dimen>
+    <dimen name="margin_12">12pt</dimen>
+    <dimen name="margin_16">16pt</dimen>
+    <dimen name="margin_20">20pt</dimen>
+</resources>

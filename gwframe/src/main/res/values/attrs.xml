@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CleanableEditText">
+        <attr name="cleanableHint" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ScanView">
+        <attr name="scanHint" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="SettingItemView">
+        <attr name="settingTitle" format="string" />
+        <attr name="settingContent" format="string" />
+        <attr name="settingContentColor" format="color" />
+        <attr name="settingTitleColor" format="color" />
+        <attr name="settingTitleSize" format="integer" />
+        <attr name="settingContentSize" format="integer" />
+        <attr name="titleGravity">
+            <flag name="start" value="1" />
+            <flag name="end" value="2" />
+            <flag name="center" value="3" />
+        </attr>
+        <attr name="showInputDialog" />
+    </declare-styleable>
+    <attr name="showInputDialog">
+        <flag name="text" value="1" />
+        <flag name="num" value="2" />
+    </attr>
+
+    <declare-styleable name="DrawableTextView">
+        <attr name="drawable_src" format="reference" />
+        <attr name="drawable_height" format="dimension" />
+        <attr name="drawable_width" format="dimension" />
+        <attr name="drawable_location">
+            <enum name="left" value="1" />
+            <enum name="top" value="2" />
+            <enum name="right" value="3" />
+            <enum name="bottom" value="4" />
+        </attr>
+    </declare-styleable>
+</resources>
