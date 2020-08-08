@@ -24,7 +24,7 @@ public class HorizontalDecoration extends RecyclerView.ItemDecoration {
     private Paint paint;
 
     public HorizontalDecoration() {
-        this(8);
+        this(1);
     }
 
     public HorizontalDecoration(int height) {
