@@ -1,14 +1,16 @@
 package com.getling.gwframe.rv.decoration;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.View;
 
+import androidx.annotation.ColorRes;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blankj.utilcode.util.AdaptScreenUtils;
+import com.blankj.utilcode.util.ColorUtils;
+import com.getling.gwframe.R;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -28,10 +30,14 @@ public class HorizontalDecoration extends RecyclerView.ItemDecoration {
     }
 
     public HorizontalDecoration(int height) {
+        this(height, R.color.color_E2E2E2);
+    }
+
+    public HorizontalDecoration(int height, @ColorRes int color) {
         smallHeight = AdaptScreenUtils.pt2Px(height);
 
         paint = new Paint();
-        paint.setColor(Color.parseColor("#E2E2E2"));
+        paint.setColor(ColorUtils.getColor(color));
     }
 
     @Override
