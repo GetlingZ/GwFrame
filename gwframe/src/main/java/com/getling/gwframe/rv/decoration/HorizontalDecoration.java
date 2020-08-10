@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blankj.utilcode.util.AdaptScreenUtils;
 import com.blankj.utilcode.util.ColorUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.getling.gwframe.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -36,6 +37,11 @@ public class HorizontalDecoration extends RecyclerView.ItemDecoration {
     }
 
     public HorizontalDecoration(int height, @ColorRes int color) {
+        this(height, color, false);
+    }
+
+    public HorizontalDecoration(int height, @ColorRes int color, boolean drawLast) {
+        this.drawLast = drawLast;
         smallHeight = AdaptScreenUtils.pt2Px(height);
 
         paint = new Paint();
@@ -49,7 +55,10 @@ public class HorizontalDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void onDraw(@NotNull Canvas c, RecyclerView parent, @NotNull RecyclerView.State state) {
         int count = parent.getChildCount();
-        for (int i = 0; i < count - 1; i++) {
+        if (!drawLast) {
+            count--;
+        }
+        for (int i = 0; i < count; i++) {
             View view = parent.getChildAt(i);
             if (view == null) {
                 continue;
@@ -59,6 +68,7 @@ public class HorizontalDecoration extends RecyclerView.ItemDecoration {
             float top = view.getBottom();
             float bottom = top + smallHeight;
             c.drawRect(lineLeft, top, right, bottom, paint);
+            LogUtils.e(i);
         }
     }
 

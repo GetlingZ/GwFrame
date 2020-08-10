@@ -38,5 +38,11 @@
             app:formTitle="aaaaa"
             app:formTitleColor="@color/color_E2E2E2"
             app:titleGravity="end" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_main"
+            android:layout_width="match_parent"
+            android:layout_height="100pt"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </LinearLayout>
 </layout>

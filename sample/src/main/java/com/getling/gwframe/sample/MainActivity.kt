@@ -5,6 +5,8 @@ import com.getling.gwframe.app.BaseActivity
 import com.getling.gwframe.bus.BusUtil
 import com.getling.gwframe.bus.event.PermissionEvent
 import com.getling.gwframe.bus.rxbus.RxBus
+import com.getling.gwframe.rv.decoration.HorizontalDecoration
+import com.getling.gwframe.sample.adapter.MainAdapter
 import com.getling.gwframe.sample.databinding.ActivityMainBinding
 import rxhttp.RxHttp
 
@@ -37,6 +39,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
 //        startActivity(Intent(this, ScanQRCodeActivity::class.java))
         setRootBackground(R.drawable.main_bg)
+
+        val dec = HorizontalDecoration(1)
+        dec.setDrawLast(true)
+        mDataBinding.rvMain.addItemDecoration(dec)
+        val adapter = MainAdapter()
+        adapter.data = listOf("", "","")
+        mDataBinding.rvMain.adapter = adapter
     }
 
     override fun initData() {
