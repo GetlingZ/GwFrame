@@ -25,6 +25,8 @@ public class HorizontalDecoration extends RecyclerView.ItemDecoration {
 
     private Paint paint;
 
+    private boolean drawLast = false;
+
     public HorizontalDecoration() {
         this(1);
     }
@@ -38,6 +40,10 @@ public class HorizontalDecoration extends RecyclerView.ItemDecoration {
 
         paint = new Paint();
         paint.setColor(ColorUtils.getColor(color));
+    }
+
+    public void setDrawLast(boolean drawLast) {
+        this.drawLast = drawLast;
     }
 
     @Override
@@ -58,14 +64,14 @@ public class HorizontalDecoration extends RecyclerView.ItemDecoration {
 
     /**
      * 绘制每个条目底部
-     * 如果是最后一个条目就不绘制
+     * drawLast控制最后一个条目绘制
      */
     @Override
     public void getItemOffsets(@NotNull Rect outRect, @NotNull View view, RecyclerView parent, @NotNull RecyclerView.State state) {
         int position = parent.getChildAdapterPosition(view);
         if (parent.getAdapter() != null) {
             int count = parent.getAdapter().getItemCount();
-            if (position == count - 1) {
+            if (position == count - 1 && !drawLast) {
                 outRect.bottom = 0;
             } else {
                 outRect.bottom = smallHeight;
