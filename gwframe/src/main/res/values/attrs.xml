@@ -19,6 +19,7 @@
         <attr name="settingTextSize" format="integer" />
         <attr name="titleGravity" />
         <attr name="showInputDialog" />
+        <attr name="myTypeValue" />
     </declare-styleable>
 
     <declare-styleable name="FormView">
@@ -76,5 +77,11 @@
     <attr name="showInputDialog">
         <flag name="text" value="1" />
         <flag name="num" value="2" />
+    </attr>
+    <attr name="myTypeValue">
+        <flag name="px" value="0" />
+        <flag name="dp" value="1" />
+        <flag name="sp" value="2" />
+        <flag name="pt" value="3" />
     </attr>
 </resources>

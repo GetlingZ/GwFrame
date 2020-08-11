@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.databinding.BindingAdapter;
 
-import com.blankj.utilcode.util.AdaptScreenUtils;
 import com.getling.gwframe.R;
 import com.getling.gwframe.utils.DialogUtil;
 import com.getling.gwframe.utils.NotifyUtil;
@@ -65,25 +63,27 @@ public class SettingItemView extends LinearLayout {
             int contentColor = typedArray.getColor(R.styleable.SettingItemView_settingContentColor, 0xff333333);
             int titleColor = typedArray.getColor(R.styleable.SettingItemView_settingTitleColor, 0xff333333);
             int titleGravity = typedArray.getInt(R.styleable.SettingItemView_titleGravity, 1);
-            int titleSize = AdaptScreenUtils.pt2Px(typedArray.getInt(R.styleable.SettingItemView_settingTitleSize, 0));
-            int contentSize = AdaptScreenUtils.pt2Px(typedArray.getInt(R.styleable.SettingItemView_settingContentSize, 0));
-            int textSize = AdaptScreenUtils.pt2Px(typedArray.getInt(R.styleable.SettingItemView_settingTextSize, 0));
+
+            int titleSize = typedArray.getInt(R.styleable.SettingItemView_settingTitleSize, 0);
+            int contentSize = typedArray.getInt(R.styleable.SettingItemView_settingContentSize, 0);
+            int textSize = typedArray.getInt(R.styleable.SettingItemView_settingTextSize, 0);
+            int myTypeValue = typedArray.getInt(R.styleable.SettingItemView_myTypeValue, 0);
 
             tvTitle.setText(title);
             tvTitle.setTextColor(titleColor);
             if (titleSize > 0) {
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize);
+                tvTitle.setTextSize(myTypeValue, titleSize);
             }
 
             tvContent.setText(content);
             tvContent.setTextColor(contentColor);
             if (contentSize > 0) {
-                tvContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, contentSize);
+                tvContent.setTextSize(myTypeValue, contentSize);
             }
 
             if (textSize > 0) {
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-                tvContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                tvTitle.setTextSize(myTypeValue, textSize);
+                tvContent.setTextSize(myTypeValue, textSize);
             }
 
             if (titleGravity == 1) {
