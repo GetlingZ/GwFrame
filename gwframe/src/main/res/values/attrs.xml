@@ -41,6 +41,7 @@
         <attr name="drawable_height" />
         <attr name="drawable_width" />
         <attr name="drawable_location" />
+        <attr name="myTypeValue" />
     </declare-styleable>
 
     <declare-styleable name="DrawableTextView">
