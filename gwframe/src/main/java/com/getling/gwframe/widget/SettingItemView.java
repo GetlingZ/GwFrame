@@ -67,7 +67,7 @@ public class SettingItemView extends LinearLayout {
             int titleSize = typedArray.getInt(R.styleable.SettingItemView_settingTitleSize, 0);
             int contentSize = typedArray.getInt(R.styleable.SettingItemView_settingContentSize, 0);
             int textSize = typedArray.getInt(R.styleable.SettingItemView_settingTextSize, 0);
-            int myTypeValue = typedArray.getInt(R.styleable.SettingItemView_myTypeValue, 0);
+            int myTypeValue = typedArray.getInt(R.styleable.SettingItemView_myTypeValue, 3);
 
             tvTitle.setText(title);
             tvTitle.setTextColor(titleColor);

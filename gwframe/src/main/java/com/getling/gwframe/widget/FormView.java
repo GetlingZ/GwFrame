@@ -69,27 +69,30 @@ public class FormView extends LinearLayout {
             int contentColor = typedArray.getColor(R.styleable.FormView_formContentColor, 0xff333333);
             int titleColor = typedArray.getColor(R.styleable.FormView_formTitleColor, 0xff333333);
             int titleGravity = typedArray.getInt(R.styleable.FormView_titleGravity, 1);
-            int titleSize = AdaptScreenUtils.pt2Px(typedArray.getInt(R.styleable.FormView_formTitleSize, 0));
-            int contentSize = AdaptScreenUtils.pt2Px(typedArray.getInt(R.styleable.FormView_formContentSize, 0));
-            int textSize = AdaptScreenUtils.pt2Px(typedArray.getInt(R.styleable.FormView_formTextSize, 0));
+
+            int titleSize = typedArray.getInt(R.styleable.FormView_formTitleSize, 0);
+            int contentSize =typedArray.getInt(R.styleable.FormView_formContentSize, 0);
+            int textSize = typedArray.getInt(R.styleable.FormView_formTextSize, 0);
+            int myTypeValue = typedArray.getInt(R.styleable.SettingItemView_myTypeValue, 3);
+
             int bg = typedArray.getInt(R.styleable.FormView_formBackground, 1);
             boolean isEditable = typedArray.getBoolean(R.styleable.FormView_edit_enable, true);
 
             tvTitle.setText(title);
             tvTitle.setTextColor(titleColor);
             if (titleSize > 0) {
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize);
+                tvTitle.setTextSize(myTypeValue, titleSize);
             }
 
             etContent.setText(content);
             etContent.setTextColor(contentColor);
             if (contentSize > 0) {
-                etContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, contentSize);
+                etContent.setTextSize(myTypeValue, contentSize);
             }
 
             if (textSize > 0) {
-                tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
-                etContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                tvTitle.setTextSize(myTypeValue, textSize);
+                etContent.setTextSize(myTypeValue, textSize);
             }
 
             if (titleGravity == 1) {
