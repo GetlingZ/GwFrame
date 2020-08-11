@@ -3,6 +3,7 @@ package com.getling.gwframe.app
 import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -125,6 +126,16 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
     fun setBarTitle(title: String) {
         if (tvBaseTitle != null) {
             tvBaseTitle!!.text = title
+        }
+    }
+
+    fun setMyTitleSize(size: Float) {
+        setMyTitleSize(TypedValue.COMPLEX_UNIT_PT, size)
+    }
+
+    fun setMyTitleSize(unit: Int, size: Float) {
+        if (tvBaseTitle != null) {
+            tvBaseTitle!!.setTextSize(unit, size)
         }
     }
 

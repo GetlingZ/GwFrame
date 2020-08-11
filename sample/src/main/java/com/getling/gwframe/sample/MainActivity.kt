@@ -21,6 +21,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initView() {
         setMyTitle("进货质检")
+        setMyTitleSize(22F)
 
         mDataBinding.name = "name"
 
@@ -44,7 +45,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         dec.setDrawLast(true)
         mDataBinding.rvMain.addItemDecoration(dec)
         val adapter = MainAdapter()
-        adapter.data = listOf("", "","")
+        adapter.data = listOf("", "", "")
         mDataBinding.rvMain.adapter = adapter
     }
 
