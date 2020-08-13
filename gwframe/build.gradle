@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 25
         targetSdkVersion 29
-        versionCode 23
-        versionName "0.2.3"
+        versionCode 24
+        versionName "0.2.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -53,7 +53,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.google.android.material:material:1.1.0'
+    api 'com.google.android.material:material:1.2.0'
     api 'androidx.recyclerview:recyclerview:1.1.0'
     api 'com.king.zxing:zxing-lite:1.1.9-androidx'
     api 'com.github.barteksc:android-pdf-viewer:2.8.2'
