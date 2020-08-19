@@ -1,6 +1,6 @@
 package com.getling.gwframe.http.utils
 
-import com.getling.gwframe.http.entity.BaseResponseEntity
+import com.getling.gwframe.data.entity.BaseResponseEntity
 import okhttp3.Response
 import rxhttp.wrapper.annotation.Parser
 import rxhttp.wrapper.entity.ParameterizedTypeImpl

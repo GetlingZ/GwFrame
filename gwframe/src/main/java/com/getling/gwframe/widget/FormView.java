@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.databinding.BindingAdapter;
 
-import com.blankj.utilcode.util.AdaptScreenUtils;
 import com.getling.gwframe.R;
 import com.getling.gwframe.utils.DialogUtil;
 import com.getling.gwframe.utils.NotifyUtil;
@@ -71,9 +69,9 @@ public class FormView extends LinearLayout {
             int titleGravity = typedArray.getInt(R.styleable.FormView_titleGravity, 1);
 
             int titleSize = typedArray.getInt(R.styleable.FormView_formTitleSize, 0);
-            int contentSize =typedArray.getInt(R.styleable.FormView_formContentSize, 0);
+            int contentSize = typedArray.getInt(R.styleable.FormView_formContentSize, 0);
             int textSize = typedArray.getInt(R.styleable.FormView_formTextSize, 0);
-            int myTypeValue = typedArray.getInt(R.styleable.SettingItemView_myTypeValue, 3);
+            int myTypeValue = typedArray.getInt(R.styleable.FormView_myTypeValue, 3);
 
             int bg = typedArray.getInt(R.styleable.FormView_formBackground, 1);
             boolean isEditable = typedArray.getBoolean(R.styleable.FormView_edit_enable, true);

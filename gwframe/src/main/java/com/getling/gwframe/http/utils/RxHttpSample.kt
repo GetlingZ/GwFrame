@@ -3,7 +3,7 @@ package com.getling.gwframe.http.utils
 import android.content.Context
 import com.blankj.utilcode.util.GsonUtils
 import com.getling.gwframe.http.BaseUrl
-import com.getling.gwframe.http.entity.BaseInfoEntity
+import com.getling.gwframe.data.entity.BaseInfoEntity
 import com.rxlife.coroutine.RxLifeScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred

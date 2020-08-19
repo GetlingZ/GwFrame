@@ -1,7 +1,6 @@
-package com.getling.gwframe.http.entity
+package com.getling.gwframe.data.entity
 
 import androidx.databinding.BaseObservable
-import com.getling.gwframe.http.entity.BaseEntity
 
 /**
  * @Author: getling

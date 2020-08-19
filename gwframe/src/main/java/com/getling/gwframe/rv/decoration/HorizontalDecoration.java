@@ -68,7 +68,6 @@ public class HorizontalDecoration extends RecyclerView.ItemDecoration {
             float top = view.getBottom();
             float bottom = top + smallHeight;
             c.drawRect(lineLeft, top, right, bottom, paint);
-            LogUtils.e(i);
         }
     }
 

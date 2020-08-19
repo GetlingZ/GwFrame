@@ -1,4 +1,4 @@
-package com.getling.gwframe.http.entity
+package com.getling.gwframe.data.entity
 
 import java.io.Serializable
 
