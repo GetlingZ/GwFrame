@@ -1,4 +1,4 @@
-package com.getling.gwframe.rv;
+package com.getling.gwframe.rv.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blankj.utilcode.util.ClickUtils;
+import com.getling.gwframe.rv.viewholder.BaseViewHolder;
 
 import org.jetbrains.annotations.NotNull;
 

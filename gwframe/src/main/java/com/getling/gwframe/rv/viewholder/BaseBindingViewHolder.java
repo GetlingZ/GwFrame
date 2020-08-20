@@ -1,4 +1,4 @@
-package com.getling.gwframe.rv;
+package com.getling.gwframe.rv.viewholder;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.getling.gwframe.rv;
+package com.getling.gwframe.rv.viewholder;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -26,6 +26,7 @@ import androidx.annotation.StringRes;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.blankj.utilcode.util.StringUtils;
+import com.getling.gwframe.rv.adapter.BaseRecyclerViewAdapter;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;

@@ -1,4 +1,4 @@
-package com.getling.gwframe.rv;
+package com.getling.gwframe.rv.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.blankj.utilcode.util.ClickUtils;
 import com.blankj.utilcode.util.CollectionUtils;
+import com.getling.gwframe.rv.viewholder.BaseBindingViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
