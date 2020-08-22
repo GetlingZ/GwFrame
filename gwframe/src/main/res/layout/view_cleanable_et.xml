@@ -11,6 +11,7 @@
         android:layout_gravity="center"
         android:paddingStart="4pt"
         android:paddingEnd="32pt"
+        android:selectAllOnFocus="true"
         android:singleLine="true" />
 
     <ImageView

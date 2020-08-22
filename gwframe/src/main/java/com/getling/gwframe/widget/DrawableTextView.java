@@ -29,7 +29,7 @@ public class DrawableTextView extends AppCompatTextView {
     }
 
     //设置方向
-    private static final int LEFT = 1, TOP = 2, RIGHT = 3, BOTTOM = 4;
+    public static final int LEFT = 1, TOP = 2, RIGHT = 3, BOTTOM = 4;
 
     //从attrs中获取期望的drawable的宽高，资源，上下左右4个位置
     private void init(AttributeSet attrs) {
@@ -48,7 +48,7 @@ public class DrawableTextView extends AppCompatTextView {
         }
     }
 
-    private void drawDrawable(Drawable mDrawable, int mWidth, int mHeight, int mLocation) {
+    public void drawDrawable(Drawable mDrawable, int mWidth, int mHeight, int mLocation) {
         if (mDrawable != null) {
             if (mWidth != 0 && mHeight != 0) {
                 mDrawable.setBounds(0, 0, mWidth, mHeight);
