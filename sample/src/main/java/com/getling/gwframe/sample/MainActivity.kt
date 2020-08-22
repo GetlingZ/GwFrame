@@ -25,7 +25,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun initParam() {
-        obtainViewModel(MyViewModel::class.java)
+        val vm = obtainViewModel(MyViewModel::class.java)
+        vm.setRemoteContext(this)
     }
 
     override fun initView() {

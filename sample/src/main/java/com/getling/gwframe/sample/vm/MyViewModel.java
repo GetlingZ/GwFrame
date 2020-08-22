@@ -1,20 +1,18 @@
 package com.getling.gwframe.sample.vm;
 
-import androidx.lifecycle.ViewModel;
-
-import com.getling.gwframe.data.source.DataSource;
 import com.getling.gwframe.data.source.DataSourceRepository;
+import com.getling.gwframe.data.vm.BaseViewModel;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @Author: getling
  * @CreateDate: 2020/8/21 10:33
  * @Description:
  */
-public class MyViewModel extends ViewModel {
-    private DataSourceRepository dataSource;
+public class MyViewModel extends BaseViewModel {
 
-    public MyViewModel get() {
-        dataSource.getRemoteDataSource();
-        return new MyViewModel();
+    public MyViewModel(@NotNull DataSourceRepository dataSourceRepository) {
+        super(dataSourceRepository);
     }
 }
