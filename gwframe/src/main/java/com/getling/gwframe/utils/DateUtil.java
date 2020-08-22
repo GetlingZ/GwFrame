@@ -2,7 +2,10 @@ package com.getling.gwframe.utils;
 
 import com.blankj.utilcode.util.TimeUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * @Author: getling
@@ -26,5 +29,14 @@ public class DateUtil {
     public static int getYear() {
         Calendar cd = Calendar.getInstance();
         return cd.get(Calendar.YEAR);
+    }
+
+    /**
+     * 获取今天日期
+     */
+    public static String getToday() {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
+        return formatter.format(date);
     }
 }

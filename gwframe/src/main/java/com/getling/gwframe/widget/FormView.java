@@ -142,12 +142,26 @@ public class FormView extends LinearLayout {
         return this;
     }
 
+    public String getTitle() {
+        if (TextUtils.isEmpty(tvTitle.getText())) {
+            return "";
+        }
+        return tvTitle.getText().toString();
+    }
+
     public FormView setContent(String content) {
         if (TextUtils.isEmpty(content) || "null".equals(content)) {
             content = "-";
         }
         etContent.setText(content);
         return this;
+    }
+
+    public String getContent() {
+        if (TextUtils.isEmpty(etContent.getText())) {
+            return "";
+        }
+        return etContent.getText().toString();
     }
 
     @BindingAdapter({"bindContent"})
