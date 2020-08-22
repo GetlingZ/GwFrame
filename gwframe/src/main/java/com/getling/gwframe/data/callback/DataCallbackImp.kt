@@ -1,4 +1,4 @@
-package com.getling.gwframe.data.source.callback
+package com.getling.gwframe.data.callback
 
 import android.text.TextUtils
 import com.blankj.utilcode.util.ToastUtils

@@ -3,8 +3,12 @@ package com.getling.gwframe.app;
 import android.graphics.Color;
 import android.view.Gravity;
 
+import androidx.lifecycle.ViewModelProvider;
+
 import com.blankj.utilcode.util.ToastUtils;
 import com.getling.gwframe.config.AppConfig;
+import com.getling.gwframe.data.source.DataSource;
+import com.getling.gwframe.data.source.DataSourceRepository;
 import com.getling.gwframe.ftp.FTPConfig;
 import com.getling.gwframe.http.BaseUrl;
 import com.getling.gwframe.http.utils.HttpUtil;
@@ -69,6 +73,20 @@ public class GwFrame {
         FTPConfig.PORT = port;
         FTPConfig.USERNAME = userName;
         FTPConfig.PASSWORD = pwd;
+        return INSTANCE;
+    }
+
+    public static DataSourceRepository dataSourceRepository;
+
+    public GwFrame setDataSource(DataSource.Remote remoteDataSource, DataSource.Local localDataSource) {
+        dataSourceRepository = DataSourceRepository.getInstance(remoteDataSource, localDataSource);
+        return INSTANCE;
+    }
+
+    public static ViewModelProvider.Factory factory;
+
+    public GwFrame setViewModelFactory(ViewModelProvider.Factory myFactory) {
+        factory = myFactory;
         return INSTANCE;
     }
 

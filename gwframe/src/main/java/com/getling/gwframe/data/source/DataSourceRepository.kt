@@ -5,13 +5,14 @@ package com.getling.gwframe.data.source
  * @CreateDate: 2019/11/20 13:31
  * @Description: 获取本地和远程数据源
  */
-class DataSourceRepository(
-//    var remoteDataSource: DataSource.Remote,
-//    var localDataSource: DataSource.Local
+class DataSourceRepository private constructor(
+    var remoteDataSource: DataSource.Remote,
+    var localDataSource: DataSource.Local
 ) {
 
     companion object {
 
+        @Volatile
         private var INSTANCE: DataSourceRepository? = null
 
         /**
@@ -19,13 +20,17 @@ class DataSourceRepository(
          *
          * @return the [DataSourceRepository] instance
          */
-//        @JvmStatic
-//        fun getInstance() =
-//            INSTANCE ?: synchronized(DataSourceRepository::class.java) {
-//                INSTANCE ?: DataSourceRepository(RemoteDataSource(), LocalDataSource())
-//                    .also { INSTANCE = it }
-//            }
-
+        @JvmStatic
+        @Synchronized
+        fun getInstance(
+            remoteDataSource: DataSource.Remote,
+            localDataSource: DataSource.Local
+        ): DataSourceRepository {
+            if (INSTANCE == null) {
+                INSTANCE = DataSourceRepository(remoteDataSource, localDataSource)
+            }
+            return INSTANCE!!
+        }
 
         /**
          * Used to force [getInstance] to create a new instance

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.getling.gwframe.data
+package com.getling.gwframe.data.vm
 
 /**
  * Various extension functions for AppCompatActivity.
@@ -27,7 +27,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
+import com.getling.gwframe.app.GwFrame
 
 
 const val ADD_EDIT_RESULT_OK = Activity.RESULT_FIRST_USER + 1
@@ -62,7 +63,7 @@ fun AppCompatActivity.setupActionBar(@IdRes toolbarId: Int, action: ActionBar.()
 }
 
 fun <T : ViewModel> AppCompatActivity.obtainViewModel(viewModelClass: Class<T>) =
-    ViewModelProviders.of(this, ViewModelFactory.getInstance(this)).get(viewModelClass)
+    ViewModelProvider(this, GwFrame.factory).get(viewModelClass)
 
 /**
  * Runs a FragmentTransaction, then calls commit().

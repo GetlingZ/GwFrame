@@ -13,12 +13,12 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.getling.gwframe.data
+package com.getling.gwframe.data.vm
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.getling.gwframe.app.GwFrame
 import com.getling.gwframe.data.source.DataSourceRepository
 
 
@@ -29,16 +29,8 @@ import com.getling.gwframe.data.source.DataSourceRepository
  * This creator is to showcase how to inject dependencies into ViewModels. It's not
  * actually necessary in this case, as the product ID can be passed in a public method.
  */
-class ViewModelFactory private constructor(
-    private val dataSourceRepository: DataSourceRepository
-) : ViewModelProvider.NewInstanceFactory() {
-
-    override fun <T : ViewModel> create(modelClass: Class<T>) =
-        with(modelClass) {
-            when {
-
-            }
-        } as T
+open class ViewModelFactory(val dataSourceRepository: DataSourceRepository) :
+    ViewModelProvider.NewInstanceFactory() {
 
     companion object {
 
@@ -49,12 +41,12 @@ class ViewModelFactory private constructor(
         @Synchronized
         fun getInstance(activity: AppCompatActivity): ViewModelFactory {
             if (INSTANCE == null) {
-                INSTANCE = ViewModelFactory(DataSourceRepository())
+                INSTANCE = ViewModelFactory(GwFrame.dataSourceRepository)
             }
-//            INSTANCE!!.dataSourceRepository.remoteDataSource.setActivity(activity)
             return INSTANCE!!
         }
 
+        @JvmStatic
         fun destroyInstance() {
             INSTANCE = null
         }
