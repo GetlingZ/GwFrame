@@ -2,10 +2,6 @@ package com.getling.gwframe.sample;
 
 import com.getling.gwframe.app.BaseApplication;
 import com.getling.gwframe.app.GwFrame;
-import com.getling.gwframe.data.source.DataSourceRepository;
-import com.getling.gwframe.sample.data.LocalData;
-import com.getling.gwframe.sample.data.RemoteData;
-import com.getling.gwframe.sample.vm.MyFactory;
 
 /**
  * @Author: getling
@@ -19,7 +15,6 @@ public class MainApplication extends BaseApplication {
         GwFrame.getInstance()
                 .setAdaptWidth(1280)
                 .isDebug(true)
-                .setBaseUrl("http://www.baidu.com")
-                .setViewModelFactory(MyFactory.getInstance(DataSourceRepository.getInstance(new RemoteData(), new LocalData())));
+                .setBaseUrl("http://www.baidu.com");
     }
 }
