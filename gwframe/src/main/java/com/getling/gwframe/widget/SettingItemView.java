@@ -52,7 +52,7 @@ public class SettingItemView extends LinearLayout {
     private void init(Context context, AttributeSet attrs) {
         inflate(context, R.layout.view_setting_item, this);
         setOrientation(HORIZONTAL);
-        setGravity(Gravity.CENTER);
+//        setGravity(Gravity.CENTER);
 
         tvTitle = findViewById(R.id.tv_title_setting);
         tvContent = findViewById(R.id.tv_content_setting);

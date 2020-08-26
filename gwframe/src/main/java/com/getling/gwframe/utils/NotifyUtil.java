@@ -2,7 +2,10 @@ package com.getling.gwframe.utils;
 
 import android.view.LayoutInflater;
 
+import androidx.annotation.StringRes;
+
 import com.blankj.utilcode.util.ActivityUtils;
+import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.Utils;
 import com.getling.gwframe.R;
@@ -14,6 +17,18 @@ import com.getling.gwframe.databinding.ViewToastBinding;
  * @Description: 提示吐司
  */
 public class NotifyUtil {
+
+    public static void showWarning(@StringRes int id) {
+        showWarning(StringUtils.getString(id));
+    }
+
+    public static void showSuccess(@StringRes int id) {
+        showSuccess(StringUtils.getString(id));
+    }
+
+    public static void showError(@StringRes int id) {
+        showError(StringUtils.getString(id));
+    }
 
     public static void showWarning(String msg) {
         Utils.runOnUiThread(() -> {
