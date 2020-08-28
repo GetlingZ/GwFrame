@@ -78,14 +78,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             }
         }
 
-        val drawerConsumer = DrawerConsumer() //horizontal menu
-            .setHorizontalDrawerView(swipeView) //top menu
-            .setTopDrawerView(swipeView) //bottom menu
-            .setBottomDrawerView(swipeView) //set the translucent color of scrim (default is 0:transparent)
-            .setScrimColor(0x7F000000) //set the shadow color follow the drawer while swiping (default is 0:transparent)
+        val drawerConsumer = DrawerConsumer()
+            //horizontal menu
+            .setHorizontalDrawerView(swipeView)
+            //top menu
+            .setTopDrawerView(swipeView)
+            //bottom menu
+            .setBottomDrawerView(swipeView)
+            //set the translucent color of scrim (default is 0:transparent)
+            .setScrimColor(0x7F000000)
+            //set the shadow color follow the drawer while swiping (default is 0:transparent)
             .setShadowColor(-0x80000000)
             .setShadowSize(SmartSwipe.dp2px(10, this))
-            .addListener(listener) //set edge size to swipe to 20dp (default is 0: whole range of the contentView bounds)
+            .addListener(listener)
+            //set edge size to swipe to 20dp (default is 0: whole range of the contentView bounds)
             .setEdgeSize(SmartSwipe.dp2px(20, this))
             .lockAllDirections()
             .`as`(DrawerConsumer::class.java)

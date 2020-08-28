@@ -49,6 +49,14 @@ public abstract class BaseBindingRecyclerViewAdapter<E> extends RecyclerView.Ada
         }
     }
 
+    public void addOneData(E data) {
+        if (this.data == null) {
+            this.data = new ArrayList<>();
+        }
+        this.data.add(data);
+        notifyDataSetChanged();
+    }
+
     public List<E> getData() {
         return data;
     }

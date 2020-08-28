@@ -31,6 +31,14 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter<Re
         notifyDataSetChanged();
     }
 
+    public void addOneData(E data) {
+        if (this.data == null) {
+            this.data = new ArrayList<>();
+        }
+        this.data.add(data);
+        notifyDataSetChanged();
+    }
+
     public void addData(List<E> data) {
         if (this.data == null) {
             this.data = new ArrayList<>();

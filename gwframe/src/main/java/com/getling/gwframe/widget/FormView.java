@@ -184,6 +184,20 @@ public class FormView extends LinearLayout {
         return this;
     }
 
+    public FormView isEditable(boolean editable) {
+        etContent.setEnabled(editable);
+        return this;
+    }
+
+    public FormView setBg(int bg) {
+        if (bg == 1) {
+            etContent.setBackgroundResource(R.drawable.shape_edit_bg_white);
+        } else {
+            etContent.setBackgroundResource(R.drawable.shape_edit_bg);
+        }
+        return this;
+    }
+
     private void initInputDialog(int type) {
         if (type == dialog_num) {
             View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_input_num, null);
