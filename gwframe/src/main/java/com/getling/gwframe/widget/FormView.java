@@ -106,7 +106,8 @@ public class FormView extends LinearLayout {
             } else {
                 etContent.setBackgroundResource(R.drawable.shape_edit_bg);
             }
-            etContent.setEnabled(isEditable);
+            etContent.setFocusable(isEditable);
+            etContent.setFocusableInTouchMode(isEditable);
 
             int mWidth = typedArray.getDimensionPixelSize
                     (R.styleable.DrawableEditText_drawable_width, 0);
@@ -185,7 +186,8 @@ public class FormView extends LinearLayout {
     }
 
     public FormView isEditable(boolean editable) {
-        etContent.setEnabled(editable);
+        etContent.setFocusable(editable);
+        etContent.setFocusableInTouchMode(editable);
         return this;
     }
 
@@ -229,6 +231,13 @@ public class FormView extends LinearLayout {
                     }
                 }
             });
+        }
+    }
+
+    public void setMyOnClickListener(OnClickListener listener) {
+        if (listener != null) {
+            tvTitle.setOnClickListener(listener);
+            etContent.setOnClickListener(listener);
         }
     }
 

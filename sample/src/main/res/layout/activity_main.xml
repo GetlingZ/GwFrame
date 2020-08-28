@@ -32,7 +32,9 @@
             app:titleGravity="end" />
 
         <com.getling.gwframe.widget.FormView
+            android:id="@+id/fv_main"
             android:layout_width="200pt"
+            app:edit_enable="false"
             android:layout_height="wrap_content"
             app:drawable_height="@dimen/dimen_16"
             app:drawable_location="right"

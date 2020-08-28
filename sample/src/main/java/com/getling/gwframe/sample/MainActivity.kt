@@ -33,6 +33,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         mDataBinding.name = "name"
 
+//        mDataBinding.fvMain.setMyOnClickListener {
+//            LogUtils.e("fv")
+//        }
+        mDataBinding.fvMain.isEditable(true)
+
         BusUtil.subscribe(this, object : RxBus.BusCallback<PermissionEvent>() {
             override fun onEvent(t: PermissionEvent?) {
                 LogUtils.e("1111")
