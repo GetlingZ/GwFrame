@@ -1,5 +1,7 @@
 package com.getling.gwframe.config;
 
+import android.content.pm.ActivityInfo;
+
 /**
  * @Author: getling
  * @CreateDate: 2020/7/18 14:48
@@ -11,4 +13,6 @@ public class AppConfig {
     public static boolean DEBUG = true;
 
     public static int AdaptWidth = 0;
+
+    public static int Orientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 }

@@ -74,6 +74,11 @@ public class GwFrame {
         return INSTANCE;
     }
 
+    public GwFrame setScreenOrientation(int orientation) {
+        AppConfig.Orientation = orientation;
+        return INSTANCE;
+    }
+
     public static ViewModelProvider.Factory factory;
 
     public GwFrame setViewModelFactory(ViewModelProvider.Factory myFactory) {
