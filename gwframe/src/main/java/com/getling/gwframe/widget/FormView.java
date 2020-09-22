@@ -3,7 +3,6 @@ package com.getling.gwframe.widget;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -11,6 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -47,6 +47,7 @@ public class FormView extends LinearLayout {
 
     private final int dialog_text = 1;
     private final int dialog_num = 2;
+    private FrameLayout flContent;
     private TextView tvTitle;
     private DrawableEditText etContent;
 
@@ -58,6 +59,7 @@ public class FormView extends LinearLayout {
         setOrientation(HORIZONTAL);
         setGravity(Gravity.CENTER);
 
+        flContent = findViewById(R.id.fl_content);
         tvTitle = findViewById(R.id.tv_title_form);
         etContent = findViewById(R.id.et_content_form);
         if (attrs != null) {
@@ -102,9 +104,9 @@ public class FormView extends LinearLayout {
             }
 
             if (bg == 1) {
-                etContent.setBackgroundResource(R.drawable.shape_edit_bg_white);
+                flContent.setBackgroundResource(R.drawable.shape_edit_bg_white);
             } else {
-                etContent.setBackgroundResource(R.drawable.shape_edit_bg);
+                flContent.setBackgroundResource(R.drawable.shape_edit_bg);
             }
             etContent.setFocusable(isEditable);
             etContent.setFocusableInTouchMode(isEditable);
@@ -119,17 +121,17 @@ public class FormView extends LinearLayout {
                     (R.styleable.DrawableEditText_drawable_location, LEFT);
             etContent.drawDrawable(mDrawable, mWidth, mHeight, mLocation);
 
-            final int type = typedArray.getInt(R.styleable.SettingItemView_showInputDialog, 0);
-            if (type != 0) {
-                etContent.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
-                etContent.getPaint().setAntiAlias(true);//抗锯齿
-                setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        initInputDialog(type);
-                    }
-                });
-            }
+//            final int type = typedArray.getInt(R.styleable.SettingItemView_showInputDialog, 0);
+//            if (type != 0) {
+//                etContent.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG); //下划线
+//                etContent.getPaint().setAntiAlias(true);//抗锯齿
+//                setOnClickListener(new OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        initInputDialog(type);
+//                    }
+//                });
+//            }
 
             typedArray.recycle();
         }
@@ -152,7 +154,7 @@ public class FormView extends LinearLayout {
 
     public FormView setContent(String content) {
         if (TextUtils.isEmpty(content) || "null".equals(content)) {
-            content = "-";
+            content = "";
         }
         etContent.setText(content);
         return this;
@@ -191,11 +193,14 @@ public class FormView extends LinearLayout {
         return this;
     }
 
+    /**
+     * 1白底 0透明
+     */
     public FormView setBg(int bg) {
         if (bg == 1) {
-            etContent.setBackgroundResource(R.drawable.shape_edit_bg_white);
+            flContent.setBackgroundResource(R.drawable.shape_edit_bg_white);
         } else {
-            etContent.setBackgroundResource(R.drawable.shape_edit_bg);
+            flContent.setBackgroundResource(R.drawable.shape_edit_bg);
         }
         return this;
     }

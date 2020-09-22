@@ -1,6 +1,7 @@
 package com.getling.gwframe.app
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.os.Bundle
 import android.util.TypedValue
@@ -60,7 +61,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
             WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN or
                     WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
         )
-//        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         rootView.removeView(wifiView)
         wifiView.visibility = View.GONE

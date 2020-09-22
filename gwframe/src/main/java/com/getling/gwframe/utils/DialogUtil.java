@@ -11,6 +11,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
@@ -263,13 +265,12 @@ public class DialogUtil {
     public static AlertDialog showSingleChoiceDialog(Context context, String title, String[] data, final DialogInterface.OnClickListener listener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);
-        int position = SPUtils.getInstance().getInt(SPConstant.SP_KEY_FACTORY_POSITION, 0);
+        int position = SPUtils.getInstance().getInt(SPConstant.SP_FACTORY_POSITION, 0);
         builder.setSingleChoiceItems(data, position, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SPUtils.getInstance().put(SPConstant.SP_KEY_FACTORY_POSITION, which);
+                SPUtils.getInstance().put(SPConstant.SP_FACTORY_POSITION, which);
                 listener.onClick(dialog, which);
-                dialog.dismiss();
             }
         });
         AlertDialog dialog = builder.show();
@@ -324,6 +325,41 @@ public class DialogUtil {
         window.setAttributes(p);
     }
 
+    /**
+     * 不可取消
+     */
+    public static AlertDialog dialogCancelable(AlertDialog dialog) {
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(false);
+        dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_SEARCH) {
+                    return true;
+                } else {
+                    return false; //默认返回 false
+                }
+            }
+        });
+        return dialog;
+    }
+
+    public static AlertDialog createLineProgressDialog(Context context, boolean cancelable,View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//        View view = LayoutInflater.from(context).inflate(R.layout.dialog_line_progress, null);
+
+        builder.setView(view);
+        AlertDialog dialog = builder.create();
+        if (!cancelable) {
+            dialogCancelable(dialog);
+        }
+
+        TextView tvTitle = view.findViewById(R.id.tv_title_dialog);
+        TextView tvOption = view.findViewById(R.id.tv_option_dialog);
+        ProgressBar pb = view.findViewById(R.id.pb_dialog);
+        return dialog;
+    }
+
     public static AlertDialog createProgressDialog(Context context, boolean cancelable) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_progress, null);
@@ -347,5 +383,9 @@ public class DialogUtil {
             window.setBackgroundDrawableResource(android.R.color.transparent);
         }
         return dialog;
+    }
+
+    interface ProgressBarListener {
+        void setProgressBar(ProgressBar progress);
     }
 }

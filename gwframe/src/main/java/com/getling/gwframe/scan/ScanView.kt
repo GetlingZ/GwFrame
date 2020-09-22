@@ -67,11 +67,22 @@ class ScanView : FrameLayout {
         cetScan = findViewById(R.id.cet_scan)
         if (attrs != null) {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ScanView)
+            val btnBg = typedArray.getResourceId(
+                R.styleable.ScanView_scan_button_bg,
+                R.drawable.ripple_btn_scan_radius
+            )
+            val contentBg = typedArray.getResourceId(
+                R.styleable.ScanView_scan_content_bg,
+                R.drawable.shape_edit_bg_white
+            )
             hint = typedArray.getString(R.styleable.ScanView_scanHint)
             if (hint == null) {
                 hint = ""
             }
+
             cetScan?.setMyHint(hint!!)
+            cetScan?.setBackgroundResource(contentBg)
+            tvScan?.setBackgroundResource(btnBg)
             typedArray.recycle()
         }
         when {

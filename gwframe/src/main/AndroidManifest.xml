@@ -4,10 +4,20 @@
     <application>
         <activity android:name=".scan.ScanQRCodeActivity" />
         <activity android:name=".pdf.PDFViewActivity" />
+        <activity android:name=".imagepreview.ImagePreviewActivity" />
 
         <service
             android:name=".http.network.NetworkCheckService"
             android:enabled="true"
             android:exported="false" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/file_provider_path"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths_public" />
+        </provider>
     </application>
 </manifest>

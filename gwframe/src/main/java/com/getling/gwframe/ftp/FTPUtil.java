@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.LinkedList;
+import java.util.List;
 
 public class FTPUtil {
 
@@ -103,7 +104,7 @@ public class FTPUtil {
      * @param listener   监听器
      * @throws IOException
      */
-    public void uploadMultiFile(LinkedList<File> fileList, String remotePath,
+    public void uploadMultiFile(List<File> fileList, String remotePath,
                                 UploadProgressListener listener) throws IOException {
 
         // 上传之前初始化
@@ -287,9 +288,7 @@ public class FTPUtil {
             currentSize = currentSize + length;
             if (currentSize / step != process) {
                 process = currentSize / step;
-                if (process % 5 == 0) {  //每隔%5的进度返回一次
-                    listener.onDownLoadProgress(FTP_DOWN_LOADING, process, null);
-                }
+                listener.onDownLoadProgress(FTP_DOWN_LOADING, process, null);
             }
         }
         out.flush();
@@ -298,16 +297,15 @@ public class FTPUtil {
 
         // 此方法是来确保流处理完毕，如果没有此方法，可能会造成现程序死掉
         if (ftpClient.completePendingCommand()) {
-            listener.onDownLoadProgress(FTP_DOWN_SUCCESS, 0, new File(localPath));
+            listener.onDownLoadProgress(FTP_DOWN_SUCCESS, 200, new File(localPath));
         } else {
             listener.onDownLoadProgress(FTP_DOWN_FAIL, 0, null);
         }
 
         // 下载完成之后关闭连接
         this.closeConnect();
-        listener.onDownLoadProgress(FTP_DISCONNECT_SUCCESS, 0, null);
+        listener.onDownLoadProgress(FTP_DISCONNECT_SUCCESS, 200, null);
 
-        return;
     }
 
     // -------------------------------------------------------文件删除方法------------------------------------------------
@@ -408,6 +406,7 @@ public class FTPUtil {
             ftpClient.logout();
             // 断开连接
             ftpClient.disconnect();
+
         }
     }
 

@@ -1,5 +1,7 @@
 package com.getling.gwframe.utils;
 
+import android.text.TextUtils;
+
 import com.blankj.utilcode.util.TimeUtils;
 
 import java.text.SimpleDateFormat;
@@ -16,6 +18,7 @@ public class DateUtil {
     public final static String DatePatten = "yyyy-MM-dd";
     public final static String TimePatten = "HH:mm:ss";
     public final static String DateTimePatten = "yyyy-MM-dd HH:mm:ss";
+    private static final String INT_PATTEN = "yyyyMMddHHmmss";
 
     public static String calendar2String(Calendar calendar) {
         return TimeUtils.date2String(calendar.getTime(), DatePatten);
@@ -38,5 +41,14 @@ public class DateUtil {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
         return formatter.format(date);
+    }
+
+    public static String getDateFromLong(String pattern) {
+        if (TextUtils.isEmpty(pattern)) {
+            pattern = INT_PATTEN;
+        }
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat format = new SimpleDateFormat(pattern, Locale.getDefault(Locale.Category.FORMAT));
+        return format.format(date);
     }
 }

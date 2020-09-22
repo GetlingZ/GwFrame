@@ -8,5 +8,6 @@ import androidx.databinding.BaseObservable
  * @Description:
  */
 open class BaseInfoEntity : BaseEntity, BaseObservable() {
-    var ip = ""
+    var ip: String? = null
+    var id: String? = null
 }

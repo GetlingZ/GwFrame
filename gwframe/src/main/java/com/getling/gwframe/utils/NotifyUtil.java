@@ -18,6 +18,30 @@ import com.getling.gwframe.databinding.ViewToastBinding;
  */
 public class NotifyUtil {
 
+    public static void showWarning(Object obj) {
+        if (obj instanceof Integer) {
+            showWarning(StringUtils.getString((Integer) obj));
+        } else {
+            showWarning(obj.toString());
+        }
+    }
+
+    public static void showSuccess(Object obj) {
+        if (obj instanceof Integer) {
+            showSuccess(StringUtils.getString((Integer) obj));
+        } else {
+            showSuccess(obj.toString());
+        }
+    }
+
+    public static void showError(Object obj) {
+        if (obj instanceof Integer) {
+            showError(StringUtils.getString((Integer) obj));
+        } else {
+            showError(obj.toString());
+        }
+    }
+
     public static void showWarning(@StringRes int id) {
         showWarning(StringUtils.getString(id));
     }

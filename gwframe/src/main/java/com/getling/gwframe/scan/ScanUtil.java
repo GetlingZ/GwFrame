@@ -54,7 +54,7 @@ public class ScanUtil {
      * 根据设备厂商，判断使用哪种扫描方式
      */
     public static void setScanMode() {
-        int mode = SPUtils.getInstance().getInt(SPConstant.SP_KEY_SCAN_MODE, -1);
+        int mode = SPUtils.getInstance().getInt(SPConstant.SP_SCAN_MODE, -1);
         if (mode == -1) {
             String manufacturer = DeviceUtils.getManufacturer().toLowerCase();
             if (manufacturer.equals(ScanConfig.Honeywell)) {
@@ -69,6 +69,10 @@ public class ScanUtil {
         } else {
             ScanConfig.INSTANCE.setSCAN_MODE(mode);
         }
+    }
+
+    public static void setScanMode(int mode) {
+        ScanConfig.INSTANCE.setSCAN_MODE(mode);
     }
 
     public static void init() {
