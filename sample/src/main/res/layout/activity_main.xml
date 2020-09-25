@@ -16,6 +16,11 @@
         android:orientation="vertical"
         tools:context="com.getling.gwframe.sample.MainActivity">
 
+        <com.getling.gwframe.widget.dropmenu.SelectView
+            android:id="@+id/sv_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <com.getling.gwframe.scan.ScanView
             android:id="@+id/scan_main"
             android:layout_width="match_parent"
@@ -34,12 +39,12 @@
         <com.getling.gwframe.widget.FormView
             android:id="@+id/fv_main"
             android:layout_width="200pt"
-            app:edit_enable="false"
             android:layout_height="wrap_content"
             app:drawable_height="@dimen/dimen_16"
             app:drawable_location="right"
             app:drawable_src="@drawable/icon_clear"
             app:drawable_width="@dimen/dimen_16"
+            app:edit_enable="false"
             app:formBackground="white"
             app:formContent="@string/text_ok"
             app:formContentColor="@color/color_333333"

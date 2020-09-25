@@ -262,14 +262,19 @@ public class DialogUtil {
         return builder.show();
     }
 
-    public static AlertDialog showSingleChoiceDialog(Context context, String title, String[] data, final DialogInterface.OnClickListener listener) {
+    public static AlertDialog showSingleChoiceDialog(Context context, String title, String[] data, boolean savePosition, final DialogInterface.OnClickListener listener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);
-        int position = SPUtils.getInstance().getInt(SPConstant.SP_FACTORY_POSITION, 0);
+        int position = SPUtils.getInstance().getInt(SPConstant.SP_FACTORY_POSITION, -1);
+        if (!savePosition) {
+            position = -1;
+        }
         builder.setSingleChoiceItems(data, position, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SPUtils.getInstance().put(SPConstant.SP_FACTORY_POSITION, which);
+                if (savePosition) {
+                    SPUtils.getInstance().put(SPConstant.SP_FACTORY_POSITION, which);
+                }
                 listener.onClick(dialog, which);
             }
         });
@@ -344,7 +349,7 @@ public class DialogUtil {
         return dialog;
     }
 
-    public static AlertDialog createLineProgressDialog(Context context, boolean cancelable,View view) {
+    public static AlertDialog createLineProgressDialog(Context context, boolean cancelable, View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
 //        View view = LayoutInflater.from(context).inflate(R.layout.dialog_line_progress, null);
 

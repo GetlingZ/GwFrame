@@ -107,9 +107,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         Handler().postDelayed({
             drawerConsumer.smoothRightOpen()
         }, 1000)
+
+        initSelect()
     }
 
     override fun initData() {
     }
 
+    private fun initSelect() {
+        mDataBinding.svMain.initTab(listOf("车间"), null)
+        mDataBinding.svMain.updatePop(0, listOf("1", "2"))
+    }
 }
