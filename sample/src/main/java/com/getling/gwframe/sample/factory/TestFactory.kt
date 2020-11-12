@@ -13,7 +13,7 @@ import com.getling.gwframe.sample.R
  */
 class TestFactory : AppConfigFactory {
 
-    override fun getRootName(): String {
+    override fun getRootPath(): String {
         return "LMS"
     }
 

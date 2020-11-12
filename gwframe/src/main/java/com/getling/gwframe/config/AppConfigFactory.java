@@ -9,7 +9,7 @@ public interface AppConfigFactory {
     /**
      * 本地sd卡，顶级目录
      */
-    String getRootName();
+    String getRootPath();
 
     /**
      * 项目名称，用于权限验证弹框

@@ -1,7 +1,6 @@
 package com.getling.gwframe.utils;
 
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.util.Log;
 
 import com.getling.gwframe.app.GwFrame;
@@ -31,7 +30,7 @@ public class ImageUtil {
                     .capture(true)
                     .captureStrategy(new CaptureStrategy(true,
                             GwFrame.getInstance().factory.getFileProviderPath(),
-                            GwFrame.getInstance().factory.getRootName()))
+                            GwFrame.getInstance().factory.getRootPath()))
                     .maxSelectable(max)
                     .restrictOrientation(GwFrame.getInstance().factory.getActivityOrientation())
                     .thumbnailScale(0.85f)

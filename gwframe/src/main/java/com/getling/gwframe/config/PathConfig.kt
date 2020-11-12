@@ -16,8 +16,8 @@ object PathConfig {
      * LMS/app name/Picture
      * LMS/app name/Download
      */
-    private val RootName = GwFrame.getInstance().factory.rootName
-    private val Path = RootName + File.separator + GwFrame.getInstance().factory.appName
+    private val RootPath = GwFrame.getInstance().factory.rootPath
+    private val Path = RootPath + File.separator + GwFrame.getInstance().factory.appName
     private const val Picture = "Picture"
     private const val Download = "Download"
 
