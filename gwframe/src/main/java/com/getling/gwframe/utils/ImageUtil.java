@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.util.Log;
 
-import com.getling.gwframe.R;
+import com.getling.gwframe.app.GwFrame;
 import com.getling.gwframe.constant.CodeConstant;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
@@ -30,8 +30,8 @@ public class ImageUtil {
                     .countable(true)
                     .capture(true)
                     .captureStrategy(new CaptureStrategy(true,
-                            activity.getString(R.string.file_provider_path),
-                            activity.getString(R.string.file_provider_directory)))
+                            GwFrame.getInstance().factory.getFileProviderPath(),
+                            GwFrame.getInstance().factory.getRootName()))
                     .maxSelectable(max)
                     .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
                     .thumbnailScale(0.85f)

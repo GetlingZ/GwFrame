@@ -2,6 +2,7 @@ package com.getling.gwframe.sample;
 
 import com.getling.gwframe.app.BaseApplication;
 import com.getling.gwframe.app.GwFrame;
+import com.getling.gwframe.sample.factory.TestFactory;
 
 /**
  * @Author: getling
@@ -13,8 +14,6 @@ public class MainApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         GwFrame.getInstance()
-                .setAdaptWidth(1280)
-                .isDebug(true)
-                .setBaseUrl("http://www.baidu.com");
+                .setAppConfig(new TestFactory());
     }
 }

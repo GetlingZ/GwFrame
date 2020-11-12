@@ -45,4 +45,9 @@ public interface AppConfigFactory {
      * apk下载地址
      */
     String getDownloadApkUrl();
+
+    /**
+     * 获取file provider包路径
+     */
+    String getFileProviderPath();
 }

@@ -14,6 +14,7 @@ import com.getling.gwframe.bus.rxbus.RxBus
 import com.getling.gwframe.rv.decoration.HorizontalDecoration
 import com.getling.gwframe.sample.adapter.MainAdapter
 import com.getling.gwframe.sample.databinding.ActivityMainBinding
+import com.getling.gwframe.utils.ImageUtil
 import rxhttp.RxHttp
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -32,6 +33,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         setMyTitleSize(22F)
 
         mDataBinding.name = "name"
+
+        mDataBinding.btnPic.setOnClickListener {
+            ImageUtil.selectImage(this,2)
+        }
 
 //        mDataBinding.fvMain.setMyOnClickListener {
 //            LogUtils.e("fv")

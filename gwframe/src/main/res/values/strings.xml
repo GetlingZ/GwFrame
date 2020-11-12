@@ -35,9 +35,6 @@
     <string name="update_install_now">立即安装</string>
     <string name="update_re_download">重新下载</string>
 
-    <string name="file_provider_path">com.getling.gwframe.fileprovider</string>
-    <string name="file_provider_directory">LMS</string>
-
     <string name="error_request">请求失败</string>
 
     <string name="digits_num">-+1234567890.</string>
