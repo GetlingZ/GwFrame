@@ -1,6 +1,6 @@
 package com.getling.gwframe.ftp;
 
-import com.getling.gwframe.config.AppConfig;
+import com.getling.gwframe.app.GwFrame;
 
 import java.io.File;
 
@@ -11,13 +11,11 @@ import java.io.File;
  */
 public class FTPConfig {
 
-    public static String HOST;
-    public static int PORT;
-    public static String USERNAME;
-    public static String PASSWORD;
+    public static String HOST = GwFrame.getInstance().factory.getFtpHost();
+    public static int PORT = GwFrame.getInstance().factory.getFtpPort();
+    public static String USERNAME = GwFrame.getInstance().factory.getFtpUserName();
+    public static String PASSWORD = GwFrame.getInstance().factory.getFtpPassword();
 
-    private final static String HOST_TEST = "";
-    private final static String HOST_PRO = "";
-
-    public final static String UPLOAD_DIRECTORY_ZY = File.separator + AppConfig.AppName + File.separator;
+    public final static String UPLOAD_DIRECTORY_ZY =
+            File.separator + GwFrame.getInstance().factory.getAppName() + File.separator;
 }

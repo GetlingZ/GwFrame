@@ -3,18 +3,18 @@ package com.getling.gwframe.app;
 import android.graphics.Color;
 import android.view.Gravity;
 
-import androidx.lifecycle.ViewModelProvider;
-
+import com.blankj.utilcode.util.PathUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.getling.gwframe.config.AppConfig;
-import com.getling.gwframe.ftp.FTPConfig;
+import com.getling.gwframe.config.AppConfigFactory;
 import com.getling.gwframe.http.BaseUrl;
 import com.getling.gwframe.http.utils.HttpUtil;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import rxhttp.RxHttp;
+import rxhttp.RxHttpPlugins;
 
 /**
  * @Author: getling
@@ -35,21 +35,10 @@ public class GwFrame {
         return INSTANCE;
     }
 
-    /**
-     * 用于权限提示对话框
-     */
-    public GwFrame setAppName(String name) {
-        AppConfig.AppName = name;
-        return INSTANCE;
-    }
+    public AppConfigFactory factory;
 
-    public GwFrame setAdaptWidth(int adaptWidth) {
-        AppConfig.AdaptWidth = adaptWidth;
-        return INSTANCE;
-    }
-
-    public GwFrame isDebug(boolean isDebug) {
-        AppConfig.DEBUG = isDebug;
+    public GwFrame setAppConfig(AppConfigFactory factory) {
+        this.factory = factory;
         initToast();
         initHttp();
         return INSTANCE;
@@ -58,31 +47,6 @@ public class GwFrame {
     public GwFrame setBaseUrl(String url) {
         HttpUtil.init();
         BaseUrl.saveBaseUrl(url);
-        return INSTANCE;
-    }
-
-    public GwFrame setDownload(String url) {
-        BaseUrl.DOWNLOAD_APK = url;
-        return INSTANCE;
-    }
-
-    public GwFrame setFtp(String host, int port, String userName, String pwd) {
-        FTPConfig.HOST = host;
-        FTPConfig.PORT = port;
-        FTPConfig.USERNAME = userName;
-        FTPConfig.PASSWORD = pwd;
-        return INSTANCE;
-    }
-
-    public GwFrame setScreenOrientation(int orientation) {
-        AppConfig.Orientation = orientation;
-        return INSTANCE;
-    }
-
-    public static ViewModelProvider.Factory factory;
-
-    public GwFrame setViewModelFactory(ViewModelProvider.Factory myFactory) {
-        factory = myFactory;
         return INSTANCE;
     }
 
@@ -98,7 +62,11 @@ public class GwFrame {
                 .readTimeout(15, TimeUnit.SECONDS)
                 .writeTimeout(15, TimeUnit.SECONDS)
                 .build();
-        RxHttp.init(client, AppConfig.DEBUG);
+        RxHttp.init(client, factory.isDebug());
+
+        //设置缓存目录为：Android/data/{app包名目录}/cache/RxHttpCache
+        File cacheDir = new File(PathUtils.getExternalAppCachePath(), "RxHttpCache");
+        RxHttpPlugins.setCache(cacheDir, 10 * 1024 * 1024);
     }
 
     private static class GwFrameBuilder {

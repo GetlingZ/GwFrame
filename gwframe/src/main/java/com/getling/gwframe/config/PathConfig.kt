@@ -1,6 +1,7 @@
 package com.getling.gwframe.config
 
 import com.blankj.utilcode.util.PathUtils
+import com.getling.gwframe.app.GwFrame
 import java.io.File
 
 /**
@@ -15,8 +16,8 @@ object PathConfig {
      * LMS/app name/Picture
      * LMS/app name/Download
      */
-    private const val ProjectName = "LMS"
-    private val Path = ProjectName + File.separator + AppConfig.AppName
+    private val RootName = GwFrame.getInstance().factory.rootName
+    private val Path = RootName + File.separator + GwFrame.getInstance().factory.appName
     private const val Picture = "Picture"
     private const val Download = "Download"
 

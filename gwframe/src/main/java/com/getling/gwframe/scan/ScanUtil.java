@@ -34,20 +34,6 @@ public class ScanUtil {
             return;
         }
         context.startActivity(new Intent(context, ScanQRCodeActivity.class));
-//        AndPermission.with(context)
-//                .runtime()
-//                .permission(Permission.CAMERA)
-//                .onGranted(new Action<List<String>>() {
-//                    @Override
-//                    public void onAction(List<String> data) {
-//                    }
-//                })
-//                .onDenied(new Action<List<String>>() {
-//                    @Override
-//                    public void onAction(List<String> data) {
-//                        ToastUtils.showLong("没有权限无法扫描呦");
-//                    }
-//                }).start();
     }
 
     /**

@@ -46,4 +46,6 @@ object SPConstant {
      * 登录页面，用户输入的名称
      */
     const val SP_INPUT_USER_NAME = "sp_key_input_user_name"
+
+    const val SP_LOGIN_URL = "sp_login_url"
 }

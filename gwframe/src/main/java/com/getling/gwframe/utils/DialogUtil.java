@@ -148,7 +148,12 @@ public class DialogUtil {
                     timer.schedule(new TimerTask() {
                         @Override
                         public void run() {
-                            KeyboardUtils.hideSoftInput((Activity) context);
+                            ((Activity) context).runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    KeyboardUtils.hideSoftInput((Activity) context);
+                                }
+                            });
                         }
                     }, 100);
                 }

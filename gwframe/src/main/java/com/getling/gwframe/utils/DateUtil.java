@@ -24,6 +24,10 @@ public class DateUtil {
         return TimeUtils.date2String(calendar.getTime(), DatePatten);
     }
 
+    public static String calendar2String(Calendar calendar, String patten) {
+        return TimeUtils.date2String(calendar.getTime(), patten);
+    }
+
     /**
      * 获取年
      *

@@ -16,6 +16,6 @@
   -->
 <paths>
     <external-path
-        name="lms_images"
+        name="my_images"
         path="Android/data/com.zhihu.matisse.sample/files/Pictures"/>
 </paths>

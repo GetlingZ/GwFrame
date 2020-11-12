@@ -1,6 +1,7 @@
 package com.getling.gwframe.app
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.os.Bundle
 import android.util.TypedValue
@@ -15,7 +16,6 @@ import androidx.databinding.ViewDataBinding
 import com.blankj.utilcode.util.AdaptScreenUtils
 import com.blankj.utilcode.util.ColorUtils
 import com.getling.gwframe.R
-import com.getling.gwframe.config.AppConfig
 import com.getling.gwframe.utils.StatusBarUtil
 import com.google.android.material.appbar.AppBarLayout
 
@@ -29,7 +29,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
     protected lateinit var mDataBinding: B
     protected lateinit var context: Context
     protected lateinit var activity: AppCompatActivity
-    private lateinit var rootView: LinearLayout
+    protected lateinit var rootView: LinearLayout
     protected lateinit var wifiView: View
 
     /**
@@ -60,7 +60,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
             WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN or
                     WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN
         )
-        requestedOrientation = AppConfig.Orientation
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
         rootView.removeView(wifiView)
         wifiView.visibility = View.GONE
@@ -143,7 +143,9 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
         rootView.setBackgroundResource(resId)
         if (appBarLayout != null) {
             appBarLayout!!.setBackgroundColor(ColorUtils.getColor(R.color.transparent))
-            appBarLayout!!.targetElevation = 0F
+//            appBarLayout!!.targetElevation = 0F
+            //去除toolbar阴影
+            appBarLayout!!.stateListAnimator = null
         }
         StatusBarUtil.setTranslucent(this, 0.0)
     }
@@ -179,7 +181,10 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
     }
 
     override fun getResources(): Resources {
-        return AdaptScreenUtils.adaptWidth(super.getResources(), AppConfig.AdaptWidth)
+        return AdaptScreenUtils.adaptWidth(
+            super.getResources(),
+            GwFrame.getInstance().factory.adaptWidth
+        )
     }
 
 }

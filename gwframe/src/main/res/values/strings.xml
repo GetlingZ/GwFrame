@@ -5,6 +5,7 @@
     <string name="text_search">搜索</string>
     <string name="text_scan">扫描</string>
     <string name="text_delete">删除</string>
+    <string name="text_confirm">确认</string>
     <string name="text_network_error">当前网络不可用，请检查手机网络设置</string>
 
     <string name="text_input_num_over_0">请输入大于0的数量</string>
@@ -38,4 +39,6 @@
     <string name="file_provider_directory">LMS</string>
 
     <string name="error_request">请求失败</string>
+
+    <string name="digits_num">-+1234567890.</string>
 </resources>

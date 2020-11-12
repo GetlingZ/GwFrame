@@ -8,9 +8,9 @@ import com.blankj.utilcode.constant.PermissionConstants;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.PermissionUtils;
+import com.getling.gwframe.app.GwFrame;
 import com.getling.gwframe.bus.BusUtil;
 import com.getling.gwframe.bus.event.PermissionEvent;
-import com.getling.gwframe.config.AppConfig;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class PermissionBlankjUtil {
         boolean hasPermission =
                 PermissionUtils.isGranted(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         if (!hasPermission) {
-            String msg = "《" + AppConfig.AppName + "》使用过程中需要以下权限：\n" +
+            String msg = "《" + GwFrame.getInstance().factory.getAppName() + "》使用过程中需要以下权限：\n" +
                     "·使用相机\n" +
                     "·访问网络\n" +
                     "·访问手机存储空间\n" +
@@ -85,7 +85,7 @@ public class PermissionBlankjUtil {
 
     private static void showSettingDialog(final Context context, String data) {
         LogUtils.e(data);
-        String msg = "《" + AppConfig.AppName + "》在使用过程中需要以下权限：\n";
+        String msg = "《" + GwFrame.getInstance().factory.getAppName() + "》在使用过程中需要以下权限：\n";
         if (data.contains("CAMERA")) {
             msg += "·使用相机\n";
         }
