@@ -1,5 +1,6 @@
 package com.getling.gwframe.sample.factory
 
+import android.content.pm.ActivityInfo
 import com.blankj.utilcode.util.AppUtils
 import com.blankj.utilcode.util.StringUtils
 import com.getling.gwframe.config.AppConfigFactory
@@ -58,5 +59,9 @@ class TestFactory : AppConfigFactory {
 
     override fun getFileProviderPath(): String {
         return AppUtils.getAppPackageName() + ".fileprovider"
+    }
+
+    override fun getActivityOrientation(): Int {
+        return ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 }

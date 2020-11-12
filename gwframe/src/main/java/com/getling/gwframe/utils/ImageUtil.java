@@ -33,7 +33,7 @@ public class ImageUtil {
                             GwFrame.getInstance().factory.getFileProviderPath(),
                             GwFrame.getInstance().factory.getRootName()))
                     .maxSelectable(max)
-                    .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+                    .restrictOrientation(GwFrame.getInstance().factory.getActivityOrientation())
                     .thumbnailScale(0.85f)
                     .imageEngine(new GlideEngine()).setOnSelectedListener((uriList, pathList) -> Log.e(
                     "onSelected",

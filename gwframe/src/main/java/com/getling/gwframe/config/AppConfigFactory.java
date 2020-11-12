@@ -50,4 +50,9 @@ public interface AppConfigFactory {
      * 获取file provider包路径
      */
     String getFileProviderPath();
+
+    /**
+     * 控制方向 0 横向 1 纵向
+     */
+    int getActivityOrientation();
 }
