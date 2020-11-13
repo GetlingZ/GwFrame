@@ -21,6 +21,10 @@ class TestFactory : AppConfigFactory {
         return StringUtils.getString(R.string.app_name)
     }
 
+    override fun getControlCenter(): String {
+        return ""
+    }
+
     override fun getBaseUrl(): String {
         return ""
     }

@@ -19,6 +19,11 @@ public interface AppConfigFactory {
     String getBaseUrl();
 
     /**
+     * 获取控制中心地址
+     */
+    String getControlCenter();
+
+    /**
      * ftp相关
      */
     String getFtpHost();
