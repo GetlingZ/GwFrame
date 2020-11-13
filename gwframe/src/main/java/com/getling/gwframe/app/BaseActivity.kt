@@ -8,6 +8,7 @@ import android.view.*
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DrawableRes
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
@@ -15,6 +16,7 @@ import androidx.databinding.ViewDataBinding
 import com.blankj.utilcode.util.AdaptScreenUtils
 import com.blankj.utilcode.util.ColorUtils
 import com.getling.gwframe.R
+import com.getling.gwframe.utils.DialogUtil
 import com.getling.gwframe.utils.StatusBarUtil
 import com.google.android.material.appbar.AppBarLayout
 
@@ -38,6 +40,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
     protected var appBarLayout: AppBarLayout? = null
     protected var tvBaseTitle: TextView? = null
     protected lateinit var myToolbar: Toolbar
+    protected lateinit var progressDialog: AlertDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +66,8 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
 
         rootView.removeView(wifiView)
         wifiView.visibility = View.GONE
+
+        progressDialog = DialogUtil.createProgressDialog(context, false)
 
         initParam()
         initView()
@@ -147,6 +152,14 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
             appBarLayout!!.stateListAnimator = null
         }
         StatusBarUtil.setTranslucent(this, 0.0)
+    }
+
+    fun showProgressDialog(show: Boolean) {
+        if (show) {
+            progressDialog.show()
+        } else {
+            progressDialog.dismiss()
+        }
     }
 
     /**
