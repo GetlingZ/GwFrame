@@ -1,13 +1,21 @@
 package com.getling.gwframe.sample.login
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.content.Intent
+import android.os.Handler
+import com.blankj.utilcode.util.SPUtils
+import com.blankj.utilcode.util.StringUtils
+import com.getling.gwframe.constant.SPConstant
 import com.getling.gwframe.login.BaseSplashActivity
-import com.getling.gwframe.sample.R
 
 class SplashActivity : BaseSplashActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+    override fun initData() {
+        Handler().postDelayed({
+            if (StringUtils.isEmpty(SPUtils.getInstance().getString(SPConstant.SP_USER_ID))) {
+                startActivity(Intent(context, ManageActivity::class.java))
+            } else {
+                startActivity(Intent(context, ManageActivity::class.java))
+            }
+            finish()
+        }, 2000)
     }
 }

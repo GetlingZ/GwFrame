@@ -6,6 +6,8 @@ import com.bumptech.glide.Glide;
 import com.getling.gwframe.R;
 import com.getling.gwframe.rv.viewholder.BaseViewHolder;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 /**
@@ -26,10 +28,10 @@ public class ManageIconAdapter extends BaseRecyclerViewAdapter<String> {
     }
 
     @Override
-    protected void convert(BaseViewHolder holder, String item) {
+    protected void convert(BaseViewHolder holder, @NotNull String item) {
         holder.setText(R.id.tv_home_title, item);
         holder.getView(R.id.tv_home_title).setSelected(true);
-        if (drawableList != null) {
+        if (drawableList != null && drawableList.size() > holder.getAdapterPosition()) {
             ImageView iv = holder.getView(R.id.iv_home_icon);
             Glide.with(iv)
                     .load(drawableList.get(holder.getAdapterPosition()))

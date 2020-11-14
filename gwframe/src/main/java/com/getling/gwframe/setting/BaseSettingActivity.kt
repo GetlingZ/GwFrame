@@ -5,7 +5,7 @@ import com.blankj.utilcode.util.SPUtils
 import com.getling.gwframe.R
 import com.getling.gwframe.app.BaseActivity
 import com.getling.gwframe.constant.SPConstant
-import com.getling.gwframe.databinding.ActivitySettingBinding
+import com.getling.gwframe.databinding.ActivitySettingBaseBinding
 import com.getling.gwframe.rv.decoration.HoriPaddingDecoration
 import com.getling.gwframe.scan.ScanConfig
 import com.getling.gwframe.scan.ScanUtil
@@ -18,7 +18,7 @@ import com.getling.gwframe.utils.DialogUtil
  * @Author: getling
  * @Description: 设置页
  */
-open class BaseSettingActivity : BaseActivity<ActivitySettingBinding>() {
+open class BaseSettingActivity : BaseActivity<ActivitySettingBaseBinding>() {
 
     private lateinit var adapter: SettingAdapter
     private val contentArray = SparseArray<String>()

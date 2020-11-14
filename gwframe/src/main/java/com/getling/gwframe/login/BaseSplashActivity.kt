@@ -7,6 +7,9 @@ import com.getling.gwframe.app.BaseActivity
 import com.getling.gwframe.databinding.ActivitySplashBaseBinding
 
 open class BaseSplashActivity : BaseActivity<ActivitySplashBaseBinding>() {
+
+    protected lateinit var tvTitle: TextView
+
     override fun bindLayout(): Int {
         return R.layout.activity_splash_base
     }
@@ -15,12 +18,12 @@ open class BaseSplashActivity : BaseActivity<ActivitySplashBaseBinding>() {
     }
 
     override fun initView() {
-        val tv = findViewById<TextView>(R.id.tv_title_splash)
+        tvTitle = findViewById(R.id.tv_title_splash)
 
         val animation = AlphaAnimation(0f, 1f)
         animation.duration = 1000
 
-        tv.animation = animation
+        tvTitle.animation = animation
     }
 
     override fun initData() {

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">GwFrame</string>
+
+    <string-array name="HomePageTitles">
+        <item>日生产计划</item>
+        <item>仓库管理</item>
+        <item>配送管理</item>
+        <item>成品库存管理</item>
+        <item>成品发运</item>
+    </string-array>
 </resources>

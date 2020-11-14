@@ -33,7 +33,7 @@ import kotlinx.android.synthetic.main.activity_main_nav_header.view.*
 open class BaseManageActivity : BaseActivity<ActivityManageBaseBinding>(),
     NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var adapter: ManageIconAdapter
+    protected lateinit var adapter: ManageIconAdapter
 
     override fun bindLayout(): Int {
         return R.layout.activity_manage_base
@@ -79,19 +79,21 @@ open class BaseManageActivity : BaseActivity<ActivityManageBaseBinding>(),
             SPUtils.getInstance().getString(SPConstant.SP_FACTORY_NAME)
 
         adapter = ManageIconAdapter()
-        mDataBinding.barMain.contentMain.rvMain.adapter = adapter
-        mDataBinding.barMain.contentMain.rvMain.addItemDecoration(GridDecoration(context, 3))
-    }
-
-    val activityList = ArrayList<Class<*>>()
-    lateinit var titleList: List<String>
-    lateinit var iconList: List<Int>
-    override fun initData() {
         adapter.setOnItemClickListener { _, position ->
             if (activityList.size > position) {
                 context.startActivity(Intent(context, activityList[position]))
             }
         }
+
+        mDataBinding.barMain.contentMain.rvMain.adapter = adapter
+        mDataBinding.barMain.contentMain.rvMain.addItemDecoration(GridDecoration(context, 3))
+    }
+
+    var activityList: ArrayList<Class<*>> = arrayListOf()
+    var titleList: ArrayList<String> = arrayListOf()
+    var drawableList: ArrayList<Int> = arrayListOf()
+    override fun initData() {
+
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
@@ -107,6 +109,10 @@ open class BaseManageActivity : BaseActivity<ActivityManageBaseBinding>(),
     private var exitTime: Long = 0
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.action == KeyEvent.ACTION_DOWN) {
+            if (mDataBinding.drawerLayoutMain.isDrawerOpen(GravityCompat.START)) {
+                mDataBinding.drawerLayoutMain.closeDrawer(GravityCompat.START)
+                return true
+            }
             if (System.currentTimeMillis() - exitTime > 2000) {
                 ToastUtils.showShort("再按一次退出")
                 exitTime = System.currentTimeMillis()
