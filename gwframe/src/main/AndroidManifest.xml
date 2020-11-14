@@ -5,6 +5,8 @@
         <activity android:name=".scan.ScanQRCodeActivity" />
         <activity android:name=".pdf.PDFViewActivity" />
         <activity android:name=".imagepreview.ImagePreviewActivity" />
+        <activity android:name=".login.BaseSplashActivity" />
+        <activity android:name=".setting.BaseSettingActivity" />
 
         <service
             android:name=".http.network.NetworkCheckService"

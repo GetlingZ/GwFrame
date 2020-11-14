@@ -16,7 +16,7 @@
         app:cornerColor="@color/white"
         app:frameColor="@color/transparent"
         app:gridHeight="0dp"
-        app:labelText="@string/tips_scan_code"
+        app:labelText="@string/text_scan_code"
         app:labelTextLocation="bottom"
         app:labelTextSize="16sp"
         app:laserColor="@color/white"

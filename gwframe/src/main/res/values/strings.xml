@@ -11,11 +11,13 @@
     <string name="text_input_num_over_0">请输入大于0的数量</string>
     <string name="text_change_num">修改数量</string>
     <string name="text_please_input">请输入</string>
+    <string name="text_scan_code">将二维码/条形码放入框内，即可自动扫描</string>
 
     <string name="menu_title_add">添加</string>
 
-    <string name="tips_scan_code">将二维码/条形码放入框内，即可自动扫描</string>
     <string name="title_scan">扫一扫</string>
+    <string name="title_setting">设置</string>
+
 
     <string name="update_title">发现新版</string>
     <string name="update_version">更新版本</string>
@@ -38,4 +40,18 @@
     <string name="error_request">请求失败</string>
 
     <string name="digits_num">-+1234567890.</string>
+
+    <string-array name="ScanMode">
+        <item>Honeywell</item>
+        <item>Almex</item>
+        <item>PDA</item>
+        <item>手机</item>
+    </string-array>
+    <string-array name="setting_item_list">
+        <item>扫描方式</item>
+        <item>检查更新</item>
+        <item>退出登录</item>
+    </string-array>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

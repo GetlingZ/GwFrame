@@ -50,7 +50,7 @@ class TestFactory : AppConfigFactory {
     }
 
     override fun getAdaptWidth(): Int {
-        return 720
+        return 360
     }
 
     override fun getUpdateInfoUrl(): String {
