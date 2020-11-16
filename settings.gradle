@@ -1,3 +1,4 @@
+include ':DataCollection'
 rootProject.name='GwFrame'
 include ':sample'
 include ':gwframe'
