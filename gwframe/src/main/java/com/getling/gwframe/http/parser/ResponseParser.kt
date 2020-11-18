@@ -1,4 +1,4 @@
-package com.getling.gwframe.http.utils
+package com.getling.gwframe.http.parser
 
 import com.getling.gwframe.data.entity.BaseResponseEntity
 import okhttp3.Response
