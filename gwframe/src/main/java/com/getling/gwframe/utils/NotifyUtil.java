@@ -19,6 +19,10 @@ import com.getling.gwframe.databinding.ViewToastBinding;
 public class NotifyUtil {
 
     public static void showWarning(Object obj) {
+        if (obj == null) {
+            showWarning("请求失败，请稍后重试");
+            return;
+        }
         if (obj instanceof Integer) {
             showWarning(StringUtils.getString((Integer) obj));
         } else {
@@ -27,6 +31,10 @@ public class NotifyUtil {
     }
 
     public static void showSuccess(Object obj) {
+        if (obj == null) {
+            showSuccess("操作成功");
+            return;
+        }
         if (obj instanceof Integer) {
             showSuccess(StringUtils.getString((Integer) obj));
         } else {
@@ -35,6 +43,10 @@ public class NotifyUtil {
     }
 
     public static void showError(Object obj) {
+        if (obj == null) {
+            showError("请求失败，请稍后重试");
+            return;
+        }
         if (obj instanceof Integer) {
             showError(StringUtils.getString((Integer) obj));
         } else {

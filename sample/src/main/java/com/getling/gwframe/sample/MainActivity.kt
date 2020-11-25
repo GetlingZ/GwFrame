@@ -1,6 +1,7 @@
 package com.getling.gwframe.sample
 
 import android.os.Handler
+import androidx.lifecycle.rxLifeScope
 import com.billy.android.swipe.SmartSwipe
 import com.billy.android.swipe.SmartSwipeWrapper
 import com.billy.android.swipe.SwipeConsumer
@@ -14,8 +15,11 @@ import com.getling.gwframe.bus.rxbus.RxBus
 import com.getling.gwframe.rv.decoration.HorizontalDecoration
 import com.getling.gwframe.sample.adapter.MainAdapter
 import com.getling.gwframe.sample.databinding.ActivityMainBinding
+import com.getling.gwframe.sample.entity.MrScanResponseEntity
 import com.getling.gwframe.utils.ImageUtil
 import rxhttp.RxHttp
+import rxhttp.toEntity
+import rxhttp.toResponse
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -35,7 +39,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         mDataBinding.name = "name"
 
         mDataBinding.btnPic.setOnClickListener {
-            ImageUtil.selectImage(this,2)
+            ImageUtil.selectImage(this, 2)
         }
 
 //        mDataBinding.fvMain.setMyOnClickListener {
@@ -117,6 +121,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     override fun initData() {
+        rxLifeScope.launch {
+            val data =
+                RxHttp.postJson("http://10.1.118.253:8181/lms_tzdp/Matdelivery/selectBytransitCode?transitCode=J331V2011160001")
+                    .toEntity<String>()
+                    .await()
+        }
+
     }
 
     private fun initSelect() {

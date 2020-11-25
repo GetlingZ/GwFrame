@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.Nullable;
 import androidx.databinding.BindingAdapter;
 
@@ -132,16 +133,16 @@ public class SettingItemView extends LinearLayout {
     }
 
     @BindingAdapter({"bindContentColor"})
-    public static void bindContentColor(@NotNull SettingItemView settingItemView, int color) {
+    public static void bindContentColor(@NotNull SettingItemView settingItemView, @ColorRes int color) {
         settingItemView.setContentColor(color);
     }
 
-    public SettingItemView setTitleColor(int color) {
+    public SettingItemView setTitleColor(@ColorRes int color) {
         tvTitle.setTextColor(getResources().getColor(color, null));
         return this;
     }
 
-    public SettingItemView setContentColor(int color) {
+    public SettingItemView setContentColor(@ColorRes int color) {
         tvContent.setTextColor(getResources().getColor(color, null));
         return this;
     }
