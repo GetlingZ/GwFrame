@@ -1,4 +1,4 @@
-package com.getling.gwframe.sample;
+package com.getling.gwframe.sample.app;
 
 import com.getling.gwframe.app.BaseApplication;
 import com.getling.gwframe.app.GwFrame;

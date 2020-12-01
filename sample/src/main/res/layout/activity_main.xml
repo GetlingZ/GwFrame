@@ -14,54 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.getling.gwframe.sample.MainActivity">
-
-        <Button
-            android:id="@+id/btn_pic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pic" />
-
-        <com.getling.gwframe.widget.dropmenu.SelectView
-            android:id="@+id/sv_main"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <com.getling.gwframe.scan.ScanView
-            android:id="@+id/scan_main"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:scanHint="@string/text_scan_code" />
-
-        <com.getling.gwframe.widget.SettingItemView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:bindContent="@{name}"
-            app:settingContentSize="30"
-            app:settingTitle="确定："
-            app:settingTitleSize="30"
-            app:titleGravity="end" />
-
-        <com.getling.gwframe.widget.FormView
-            android:id="@+id/fv_main"
-            android:layout_width="200pt"
-            android:layout_height="wrap_content"
-            app:drawable_height="@dimen/dimen_16"
-            app:drawable_location="right"
-            app:drawable_src="@drawable/icon_clear"
-            app:drawable_width="@dimen/dimen_16"
-            app:edit_enable="false"
-            app:formBackground="white"
-            app:formContent="@string/text_ok"
-            app:formContentColor="@color/color_333333"
-            app:formTitle="aaaaa"
-            app:formTitleColor="@color/color_E2E2E2"
-            app:titleGravity="end" />
+        tools:context="com.getling.gwframe.sample.ui.main.MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_main"
             android:layout_width="match_parent"
-            android:layout_height="100pt"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3" />
     </LinearLayout>
 </layout>
