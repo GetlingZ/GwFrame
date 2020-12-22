@@ -20,8 +20,8 @@ import com.getling.gwframe.utils.DialogUtil
  */
 open class BaseSettingActivity : BaseActivity<ActivitySettingBaseBinding>() {
 
-    private lateinit var adapter: SettingAdapter
-    private val contentArray = SparseArray<String>()
+    lateinit var adapter: SettingAdapter
+    val contentArray = SparseArray<String>()
 
     override fun bindLayout(): Int {
         return R.layout.activity_setting_base
@@ -51,7 +51,7 @@ open class BaseSettingActivity : BaseActivity<ActivitySettingBaseBinding>() {
                     changeScanMode()
                 1 ->
                     //检查更新
-                    UpdateUtil.checkUpdate(this, true)
+                    checkUpDate()
                 2 ->
                     //退出登录
                     logoutDialog()
@@ -61,7 +61,7 @@ open class BaseSettingActivity : BaseActivity<ActivitySettingBaseBinding>() {
         }
     }
 
-    private fun changeScanMode() {
+    open fun changeScanMode() {
         DialogUtil.showSingleChoiceDialog(
             context,
             "选择方式",
@@ -84,7 +84,7 @@ open class BaseSettingActivity : BaseActivity<ActivitySettingBaseBinding>() {
         adapter.notifyItemChanged(0)
     }
 
-    private fun logoutDialog() {
+    open fun logoutDialog() {
         DialogUtil.showNormalDialog(
             context, "", "退出登录？", "确认"
         ) { dialog, which ->
@@ -94,5 +94,9 @@ open class BaseSettingActivity : BaseActivity<ActivitySettingBaseBinding>() {
 
     open fun logout() {
 
+    }
+
+    open fun checkUpDate() {
+        UpdateUtil.checkUpdate(this, true)
     }
 }

@@ -62,6 +62,7 @@ public class ScanUtil {
     }
 
     public static void init() {
+        setScanMode();
         if (ScanConfig.INSTANCE.getSCAN_MODE() == ScanConfig.SCAN_MODE_PHONE) {
             return;
         }
@@ -116,6 +117,8 @@ public class ScanUtil {
             properties.put(BarcodeReader.PROPERTY_NOTIFICATION_BAD_READ_ENABLED, true);
             // Apply the settings
             barcodeReader.setProperties(properties);
+        } else {
+            LogUtils.e("barcodeReader初始化失败");
         }
 
     }

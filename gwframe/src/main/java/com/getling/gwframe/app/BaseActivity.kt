@@ -15,7 +15,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.blankj.utilcode.util.AdaptScreenUtils
 import com.blankj.utilcode.util.ColorUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.getling.gwframe.R
+import com.getling.gwframe.scan.ScanUtil
 import com.getling.gwframe.utils.DialogUtil
 import com.getling.gwframe.utils.StatusBarUtil
 import com.google.android.material.appbar.AppBarLayout
@@ -73,7 +75,23 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
         initView()
         initData()
     }
+    /*-----------------------Honeywell PDA扫描生命周期-----------------------*/
 
+    public override fun onResume() {
+        super.onResume()
+        ScanUtil.onResume()
+    }
+
+    public override fun onPause() {
+        super.onPause()
+        ScanUtil.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ScanUtil.onDestroy()
+        ToastUtils.cancel()
+    }
     /**
      * 绑定布局
      *

@@ -10,6 +10,7 @@ import com.getling.gwframe.data.entity.BaseInfoEntity
  */
 class UpdateResponseEntity : BaseEntity {
     var entity: FactoryInfo? = null
+    var dataList: List<FactoryInfo>? = null
 
     class FactoryInfo : BaseInfoEntity() {
         var factorycode: String? = null// "B410",

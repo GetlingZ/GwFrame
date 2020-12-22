@@ -10,11 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.thread.ThreadActivity"></activity>
+        <activity android:name=".ui.qrcode.QrCodeActivity"></activity>
+        <activity android:name=".ui.thread.ThreadActivity" />
         <activity
             android:name=".login.SplashActivity"
-            android:theme="@style/FullScreenActivityTheme"></activity>
-        <activity android:name=".login.ManageActivity"></activity>
+            android:theme="@style/FullScreenActivityTheme" />
+        <activity android:name=".login.ManageActivity" />
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
