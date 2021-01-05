@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.getling.gwframe.sample">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" /> <!-- 屏蔽HOME键需要的权限 -->
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:name=".app.MainApplication"
         android:allowBackup="true"
@@ -10,12 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.qrcode.QrCodeActivity"></activity>
+        <activity android:name=".ui.key.KeyActivity" />
+        <activity android:name=".ui.qrcode.QrCodeActivity" />
         <activity android:name=".ui.thread.ThreadActivity" />
         <activity
-            android:name=".login.SplashActivity"
+            android:name=".ui.login.SplashActivity"
             android:theme="@style/FullScreenActivityTheme" />
-        <activity android:name=".login.ManageActivity" />
+        <activity android:name=".ui.login.ManageActivity" />
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +29,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ui.broadcast.BootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".ui.broadcast.HomeReceiver"
+            android:enabled="true"
+            android:exported="true" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

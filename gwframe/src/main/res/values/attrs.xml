@@ -8,6 +8,7 @@
     <declare-styleable name="ScanView">
         <attr name="scanHint" format="string" />
         <attr name="scan_button_bg" format="reference" />
+        <attr name="scan_button_text" format="string" />
         <attr name="scan_content_bg" format="reference" />
         <attr name="scan_content_height" format="dimension" />
     </declare-styleable>

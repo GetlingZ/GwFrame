@@ -1,4 +1,4 @@
-package com.getling.gwframe.sample.login
+package com.getling.gwframe.sample.ui.login
 
 import android.content.Intent
 import android.os.Handler

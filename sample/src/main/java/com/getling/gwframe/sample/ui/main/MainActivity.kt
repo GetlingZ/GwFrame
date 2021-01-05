@@ -6,6 +6,7 @@ import com.getling.gwframe.rv.adapter.ManageIconAdapter
 import com.getling.gwframe.rv.decoration.GridDecoration
 import com.getling.gwframe.sample.R
 import com.getling.gwframe.sample.databinding.ActivityMainBinding
+import com.getling.gwframe.sample.ui.key.KeyActivity
 import com.getling.gwframe.sample.ui.qrcode.QrCodeActivity
 import com.getling.gwframe.sample.ui.thread.ThreadActivity
 
@@ -31,10 +32,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         val titleList = mutableListOf<String>()
         titleList.add("线程")
         titleList.add("扫描")
+        titleList.add("物理按键")
 
         val activityList = mutableListOf<Class<*>>()
         activityList.add(ThreadActivity::class.java)
         activityList.add(QrCodeActivity::class.java)
+        activityList.add(KeyActivity::class.java)
 
         adapter.data = titleList
 

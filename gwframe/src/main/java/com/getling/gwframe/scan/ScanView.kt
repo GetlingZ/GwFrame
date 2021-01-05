@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -79,7 +80,12 @@ class ScanView : FrameLayout {
             if (hint == null) {
                 hint = ""
             }
+            val btnText =
+                typedArray.getString(R.styleable.ScanView_scan_button_text)
 
+            if (!TextUtils.isEmpty(btnText)) {
+                tvScan?.text = btnText
+            }
             cetScan?.setMyHint(hint!!)
             cetScan?.setBackgroundResource(contentBg)
             tvScan?.setBackgroundResource(btnBg)

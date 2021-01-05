@@ -1,4 +1,4 @@
-package com.getling.gwframe.sample.login
+package com.getling.gwframe.sample.ui.login
 
 import com.getling.gwframe.login.BaseManageActivity
 import com.getling.gwframe.sample.R
