@@ -3,14 +3,12 @@ package com.getling.gwframe.sample.ui.key
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.os.Bundle
 import android.view.KeyEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.LogUtils
 import com.getling.gwframe.sample.R
-import com.getling.gwframe.sample.ui.broadcast.HomeReceiver
 
 
 class KeyActivity : AppCompatActivity() {
@@ -18,12 +16,16 @@ class KeyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_key)
-        startLockTask()
+//        startLockTask()
 
         //注册广播
-        val innerReceiver = HomeReceiver()
-        val intentFilter = IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
-        registerReceiver(innerReceiver, intentFilter)
+//        val innerReceiver = HomeReceiver()
+//        val intentFilter = IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
+//        registerReceiver(innerReceiver, intentFilter)
+
+        val intent = Intent("com.hyzn.sdk.switchNavBar")
+        intent.putExtra("value", 0)
+        sendBroadcast(intent)
     }
 
     override fun onPause() {
