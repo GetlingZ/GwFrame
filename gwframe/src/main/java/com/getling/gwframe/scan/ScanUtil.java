@@ -77,9 +77,12 @@ public class ScanUtil {
             public void onCreated(AidcManager aidcManager) {
                 manager = aidcManager;
                 barcodeReader = manager.createBarcodeReader();
+                initReader();
             }
         });
+    }
 
+    private static void initReader() {
         if (barcodeReader != null) {
 
             // register bar code event listener

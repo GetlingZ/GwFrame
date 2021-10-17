@@ -89,7 +89,6 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity(), View.OnC
 
     override fun onDestroy() {
         super.onDestroy()
-        ScanUtil.onDestroy()
         ToastUtils.cancel()
     }
     /**
